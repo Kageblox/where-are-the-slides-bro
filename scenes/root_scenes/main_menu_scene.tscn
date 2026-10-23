@@ -1,3 +1,49 @@
 [gd_scene format=3 uid="uid://8d2e824hyyb4"]
 
+[ext_resource type="Script" uid="uid://bdqqmw7xg7b0c" path="res://scripts/johann/ui/button.gd" id="1_c7lld"]
+[ext_resource type="Texture2D" uid="uid://c7dtupre28qct" path="res://icon.svg" id="1_oet81"]
+[ext_resource type="Script" uid="uid://pyu6w1fyxk53" path="res://scripts/johann/resource/tween_details.gd" id="2_q7aqv"]
+[ext_resource type="Resource" uid="uid://csn4pem5dl6ex" path="res://resources/tween_details/scale_normal.tres" id="3_5rs4i"]
+[ext_resource type="Resource" uid="uid://biv6kk5bst0h1" path="res://resources/tween_details/modulate_normal.tres" id="4_lyc34"]
+[ext_resource type="Resource" uid="uid://ctvxk8dwpud1u" path="res://resources/tween_details/scale_large.tres" id="5_smr6u"]
+[ext_resource type="Resource" uid="uid://dlli35sp7wkt4" path="res://resources/tween_details/modulate_bright.tres" id="6_wswnf"]
+[ext_resource type="Resource" uid="uid://2v5hvi571g0o" path="res://resources/tween_details/modulate_dark.tres" id="7_jjeec"]
+[ext_resource type="Resource" uid="uid://cm265w8ddvfc" path="res://resources/tween_details/scale_small.tres" id="8_2srhr"]
+[ext_resource type="Resource" uid="uid://bt0ctot4vle5d" path="res://resources/tween_details/scale_normal_delayed.tres" id="9_2n0iy"]
+[ext_resource type="Resource" uid="uid://c2g38vfb1x3bt" path="res://resources/tween_details/modulate_normal_delayed.tres" id="10_gni0x"]
+
 [node name="MainMenuScene" type="Node" unique_id=822257853]
+
+[node name="Control" type="Control" parent="." unique_id=156161287]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CustomButton" type="Control" parent="Control" unique_id=548570415 node_paths=PackedStringArray("button_texture")]
+anchors_preset = 0
+offset_left = 81.0
+offset_top = 61.0
+offset_right = 121.0
+offset_bottom = 101.0
+scale = Vector2(3.88, 3.88)
+script = ExtResource("1_c7lld")
+button_texture = NodePath("TextureRect")
+texture_default_tween_details = Array[ExtResource("2_q7aqv")]([ExtResource("3_5rs4i"), ExtResource("4_lyc34")])
+texture_hover_tween_details = Array[ExtResource("2_q7aqv")]([ExtResource("5_smr6u"), ExtResource("6_wswnf")])
+texture_disabled_tween_details = Array[ExtResource("2_q7aqv")]([ExtResource("3_5rs4i"), ExtResource("7_jjeec")])
+texture_pressed_tween_details = Array[ExtResource("2_q7aqv")]([ExtResource("8_2srhr"), ExtResource("6_wswnf"), ExtResource("9_2n0iy"), ExtResource("10_gni0x")])
+
+[node name="TextureRect" type="TextureRect" parent="Control/CustomButton" unique_id=1848049689]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("1_oet81")
+expand_mode = 2
