@@ -1,48 +1,40 @@
 @tool
 class_name SnapTarget
 extends Node2D
+## A placement slot. It always draws a ghost of the expected result.
+##   origin        = where the CENTRE of the image should end up
+##   node rotation = expected rotation (set it in the Inspector)
+##   target_size   = expected size
 
 @export var expected_id: StringName = &""
 @export var texture: Texture2D:
 	set(v):
 		texture = v
 		queue_redraw()
-@export var target_size := Vector2(200, 200):
+@export var target_size: Vector2 = Vector2(200, 200):
 	set(v):
 		target_size = v
 		queue_redraw()
 
 @export_group("Ghost look")
-@export var ghost_color := Color(1, 1, 1, 0.35):
+@export var ghost_color: Color = Color(1, 1, 1, 0.35):
 	set(v):
 		ghost_color = v
 		queue_redraw()
-@export var outline_color := Color("4f8cff"):
+@export var outline_color: Color = Color("4f8cff"):
 	set(v):
 		outline_color = v
 		queue_redraw()
-@export var show_outline := false:
+@export var show_outline: bool = true:
 	set(v):
 		show_outline = v
 		queue_redraw()
 
-@export_group("Snapping")
-@export var snap_distance := 20.0
-
-@export_group("Scoring")
-@export var max_points := 100.0
-@export_range(0.0, 1.0) var position_weight := 0.5
-@export_range(0.0, 1.0) var rotation_weight := 0.25
-@export_range(0.0, 1.0) var size_weight := 0.25
-@export_subgroup("Position (px)")
-@export var position_full := 8.0
-@export var position_zero := 150.0
-@export_subgroup("Rotation (degrees)")
-@export var rotation_full := 4.0
-@export var rotation_zero := 45.0
-@export_subgroup("Size (relative error, 0.1 = 10%)")
-@export_range(0.0, 1.0) var size_full := 0.05
-@export_range(0.0, 2.0) var size_zero := 0.5
+@export_group("Snap and scoring")
+## Position-only snap, and only when the element centre is this close (global px).
+@export var snap_distance: float = 20.0
+## >1 = more forgiving slot, <1 = stricter slot (scales all three error measures).
+@export var tolerance_scale: float = 1.0
 
 
 func _ready() -> void:
@@ -51,7 +43,7 @@ func _ready() -> void:
 
 
 func _draw() -> void:
-	var r := Rect2(-target_size * 0.5, target_size)
+	var r: Rect2 = Rect2(-target_size * 0.5, target_size)
 	if texture:
 		draw_texture_rect(texture, r, false, ghost_color)
 	else:
@@ -68,49 +60,42 @@ func matches(e: SlideElement) -> bool:
 	return expected_id == &"" or e.element_id == expected_id
 
 
-func evaluate(e: SlideElement) -> Dictionary:
-	var pos_dev := e.global_position.distance_to(global_position)
-	var rot_dev := rad_to_deg(absf(angle_difference(e.global_rotation, global_rotation)))
-	var es: Vector2 = e.size * e.global_scale.abs()
-	var ts := (target_size * global_scale.abs()).max(Vector2.ONE)
-	var size_dev := maxf(absf(es.x / ts.x - 1.0), absf(es.y / ts.y - 1.0))
-
-	var p := _falloff(pos_dev, position_full, position_zero)
-	var r := _falloff(rot_dev, rotation_full, rotation_zero)
-	var s := _falloff(size_dev, size_full, size_zero)
-	var wsum := maxf(position_weight + rotation_weight + size_weight, 0.0001)
-	var total := (p * position_weight + r * rotation_weight + s * size_weight) / wsum
-	return {
-		"position": p, "rotation": r, "size": s,
-		"position_error_px": pos_dev, "rotation_error_deg": rot_dev, "size_error": size_dev,
-		"total": total, "points": total * max_points,
-	}
-
-
+## Nearest placed element that matches this slot's id.
 func best_match() -> SlideElement:
 	var best: SlideElement = null
-	var best_s := -1.0
+	var best_d: float = INF
 	for n in get_tree().get_nodes_in_group(&"slide_elements"):
-		var e := n as SlideElement
+		var e: SlideElement = n as SlideElement
 		if e == null or not matches(e):
 			continue
-		var s: float = evaluate(e)["total"]
-		if s > best_s:
-			best_s = s
+		var d: float = e.global_position.distance_to(global_position)
+		if d < best_d:
 			best = e
+			best_d = d
 	return best
 
 
-func score() -> Dictionary:
-	var e := best_match()
+func score_position() -> float:
+	var e: SlideElement = best_match()
 	if e == null:
-		return {"total": 0.0, "points": 0.0, "element": null}
-	var r := evaluate(e)
-	r["element"] = e
-	return r
+		return 0.0
+	var err: float = e.global_position.distance_to(global_position) / maxf(tolerance_scale, 0.01)
+	return ScoreMath.piecewise(err, GameConfig.get_cfg().position_curve)
 
 
-static func _falloff(dev: float, full: float, zero: float) -> float:
-	if dev <= full:
-		return 1.0
-	return 1.0 - clampf(inverse_lerp(full, maxf(zero, full + 0.0001), dev), 0.0, 1.0)
+func score_rotation() -> float:
+	var e: SlideElement = best_match()
+	if e == null:
+		return 0.0
+	var deg: float = rad_to_deg(absf(angle_difference(e.global_rotation, global_rotation)))
+	return ScoreMath.piecewise(deg / maxf(tolerance_scale, 0.01), GameConfig.get_cfg().rotation_curve)
+
+
+func score_size() -> float:
+	var e: SlideElement = best_match()
+	if e == null:
+		return 0.0
+	var es: Vector2 = e.size * e.global_scale.abs()
+	var ts: Vector2 = (target_size * global_scale.abs()).max(Vector2.ONE)
+	var dev: float = maxf(absf(es.x / ts.x - 1.0), absf(es.y / ts.y - 1.0))
+	return ScoreMath.piecewise(dev / maxf(tolerance_scale, 0.01), GameConfig.get_cfg().size_curve)

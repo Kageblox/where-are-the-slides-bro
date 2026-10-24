@@ -1,64 +1,149 @@
 [gd_scene format=3 uid="uid://dqtqmmd85bslg"]
 
+[ext_resource type="Script" uid="uid://d330r4ilvymaq" path="res://slide/slide.gd" id="0_slide"]
 [ext_resource type="Script" uid="uid://cqmwk2wb6dpvg" path="res://scripts/slide_editor.gd" id="1_2rfd7"]
 [ext_resource type="Texture2D" uid="uid://cdkkumoqvcdl0" path="res://assets/Placeholders/SideBar.png" id="1_rbl83"]
 [ext_resource type="PackedScene" uid="uid://7bl3obsd30tx" path="res://scenes/Slide_Element.tscn" id="2_00alm"]
 [ext_resource type="Texture2D" uid="uid://bumf2wpv2sdr6" path="res://assets/Placeholders/WhiteShit.jpg" id="2_tfcqe"]
 [ext_resource type="PackedScene" uid="uid://mn3pc8dimpnf" path="res://scenes/snap_target.tscn" id="4_rxfkf"]
 [ext_resource type="PackedScene" uid="uid://dcwekjrgovelk" path="res://scenes/typing_test.tscn" id="5_gqwe4"]
+[ext_resource type="Script" uid="uid://bpt6gi2rv0s2o" path="res://slide/slide_objectives.gd" id="6_objs"]
+[ext_resource type="Script" uid="uid://dskcyfyrlknnd" path="res://slide/slide_objective.gd" id="7_obj"]
+[ext_resource type="Script" uid="uid://dnte03t5iq70b" path="res://slide/slide_timer.gd" id="8_timer"]
+[ext_resource type="FontFile" uid="uid://2vnn00ua7f3m" path="res://fonts/RobotoMono-VariableFont_wght.ttf" id="9_font"]
 
-[node name="Slide" type="Node2D" unique_id=973164792]
-
-[node name="SlideEditor" type="Node2D" parent="." unique_id=2013951191]
-position = Vector2(1361.4999, 286.00012)
-scale = Vector2(6.3262715, 5.9363065)
-script = ExtResource("1_2rfd7")
+[node name="Slide" type="Node2D" unique_id=973164792 node_paths=PackedStringArray("timer", "objectives", "editor", "popup_layer", "submit_button")]
+script = ExtResource("0_slide")
+slide_title = "Slide 1"
+expected_time = 120.0
+timer = NodePath("HUD/SlideTimer")
+objectives = NodePath("SlideObjectives")
+editor = NodePath("SlideEditor")
+popup_layer = NodePath("PopupCanvas/PopupLayer")
+submit_button = NodePath("HUD/SubmitButton")
 
 [node name="Slide Bar" type="Sprite2D" parent="." unique_id=351574221]
 position = Vector2(464.00003, 237.74998)
 scale = Vector2(0.67449665, 2.0816553)
 texture = ExtResource("1_rbl83")
 
-[node name="Slide" type="Sprite2D" parent="." unique_id=174586425]
+[node name="SlideArea" type="Sprite2D" parent="." unique_id=174586425]
 position = Vector2(1361.7501, 240)
 scale = Vector2(6.3622885, 5.9363065)
 texture = ExtResource("2_tfcqe")
 
+[node name="Targets" type="Node2D" parent="." unique_id=386736932]
+
+[node name="Snap Target" parent="Targets" unique_id=1239340764 instance=ExtResource("4_rxfkf")]
+position = Vector2(768, 217)
+rotation = 0.20943952
+expected_id = &"icon"
+target_size = Vector2(236, 158)
+
+[node name="Elements" type="Node2D" parent="." unique_id=1860255922]
+
 [node name="Pallete" type="Node2D" parent="." unique_id=1781397980]
 
 [node name="SlideElement" parent="Pallete" unique_id=1887300992 instance=ExtResource("2_00alm")]
-position = Vector2(286, 398)
+position = Vector2(480, 404)
 size = Vector2(100, 100)
+element_id = &"icon"
 is_template = true
-
-[node name="Visual" parent="Pallete/SlideElement" index="0" unique_id=1300765281]
-position = Vector2(194, 6)
-
-[node name="CollisionShape2D" parent="Pallete/SlideElement" index="1" unique_id=1930740526]
-position = Vector2(193, 6)
-
-[node name="Targets" type="Node2D" parent="." unique_id=386736932]
-position = Vector2(768, 217)
-
-[node name="Snap Target" parent="Targets" unique_id=1239340764 instance=ExtResource("4_rxfkf")]
-
-[node name="Elements" type="Node2D" parent="." unique_id=1860255922]
 
 [node name="TypingTests" type="Node2D" parent="." unique_id=714162964]
 
 [node name="TypingTest" parent="TypingTests" unique_id=1606810163 instance=ExtResource("5_gqwe4")]
-offset_left = 1325.9441
-offset_top = 445.152
-offset_right = 1918.0
-offset_bottom = 664.452
+offset_left = 1250.0
+offset_top = 430.0
+offset_right = 2060.0
+offset_bottom = 650.0
 text_to_type = "Hi Johann loves sliding down the slide with Gavin"
 
 [node name="TypingTest2" parent="TypingTests" unique_id=1149234679 instance=ExtResource("5_gqwe4")]
-offset_left = 1250.9441
-offset_top = 166.15201
-offset_right = 1879.0
-offset_bottom = 385.45203
+offset_left = 1250.0
+offset_top = 140.0
+offset_right = 2060.0
+offset_bottom = 360.0
 
-[node name="PopupLayer" type="CanvasLayer" parent="." unique_id=1024880330]
+[node name="SlideObjectives" type="Node" parent="."]
+script = ExtResource("6_objs")
 
-[editable path="Pallete/SlideElement"]
+[node name="ImagePosition" type="Node" parent="SlideObjectives" node_paths=PackedStringArray("target")]
+script = ExtResource("7_obj")
+label = "Image position"
+weight = 1.5
+target = NodePath("../../Targets/Snap Target")
+
+[node name="ImageSize" type="Node" parent="SlideObjectives" node_paths=PackedStringArray("target")]
+script = ExtResource("7_obj")
+kind = 1
+label = "Image size"
+target = NodePath("../../Targets/Snap Target")
+
+[node name="ImageRotation" type="Node" parent="SlideObjectives" node_paths=PackedStringArray("target")]
+script = ExtResource("7_obj")
+kind = 2
+label = "Image rotation"
+weight = 0.5
+target = NodePath("../../Targets/Snap Target")
+
+[node name="Typing1" type="Node" parent="SlideObjectives" node_paths=PackedStringArray("typing_test")]
+script = ExtResource("7_obj")
+kind = 3
+label = "Typing 1"
+typing_test = NodePath("../../TypingTests/TypingTest")
+
+[node name="Typing2" type="Node" parent="SlideObjectives" node_paths=PackedStringArray("typing_test")]
+script = ExtResource("7_obj")
+kind = 3
+label = "Typing 2"
+typing_test = NodePath("../../TypingTests/TypingTest2")
+
+[node name="SlideEditor" type="Node2D" parent="." unique_id=2013951191 node_paths=PackedStringArray("slide_area", "elements_root")]
+script = ExtResource("1_2rfd7")
+slide_area = NodePath("../SlideArea")
+elements_root = NodePath("../Elements")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="SlideTimer" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 60.0
+grow_horizontal = 0
+script = ExtResource("8_timer")
+font = ExtResource("9_font")
+
+[node name="SubmitButton" type="Button" parent="HUD"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -176.0
+offset_top = -60.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Submit slide"
+
+[node name="PopupCanvas" type="CanvasLayer" parent="." unique_id=1024880330]
+layer = 20
+
+[node name="PopupLayer" type="Control" parent="PopupCanvas"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="pressed" from="HUD/SubmitButton" to="." method="submit" binds= [false]]

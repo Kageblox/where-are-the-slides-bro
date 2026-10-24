@@ -3,15 +3,6 @@
 [ext_resource type="Script" uid="uid://c6xso302wqamr" path="res://scripts/snap_target.gd" id="1_os416"]
 [ext_resource type="Texture2D" uid="uid://kt8w0p0hudud" path="res://assets/Placeholders/icon.svg" id="2_os416"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_usqm6"]
-size = Vector2(236, 158)
-
-[node name="Snap Target" type="Area2D" unique_id=1239340764 groups=["targets"]]
+[node name="Snap Target" type="Node2D" unique_id=1239340764]
 script = ExtResource("1_os416")
 texture = ExtResource("2_os416")
-position_weight = 0.15
-rotation_weight = 0.425
-size_weight = 0.425
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=691621113]
-shape = SubResource("RectangleShape2D_usqm6")

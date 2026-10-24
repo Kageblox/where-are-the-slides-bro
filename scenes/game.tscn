@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://cpc5hoelqfbu5"]
 
 [ext_resource type="Script" uid="uid://cndvqwe4hd0i1" path="res://scripts/game.gd" id="1_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://dqtqmmd85bslg" path="res://scenes/Slide.tscn" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://utds8u8w4twh" path="res://messages/message_app.gd" id="2_msg"]
+[ext_resource type="Script" uid="uid://bb3eupovqsxgf" path="res://ui/hud_bars.gd" id="3_hud"]
+[ext_resource type="Script" uid="uid://tncyltmnw55h" path="res://ui/screens.gd" id="4_scr"]
 
 [node name="Game" type="Node" unique_id=1046827601]
 script = ExtResource("1_yqjtg")
 
-[node name="Slide" parent="." unique_id=973164792 instance=ExtResource("2_yqjtg")]
+[node name="SlideHost" type="Node2D" parent="." unique_id=283497202]
 position = Vector2(399, 279)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1822393478]
@@ -34,3 +36,36 @@ offset_left = -8.656006
 offset_top = -0.28001404
 offset_right = -0.552124
 offset_bottom = 0.039993286
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 50
+
+[node name="HudBars" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 216.0
+offset_bottom = 102.0
+mouse_filter = 2
+script = ExtResource("3_hud")
+
+[node name="MessageApp" type="PanelContainer" parent="UI" unique_id=1816234379]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -76.0
+offset_right = 316.0
+offset_bottom = -16.0
+grow_vertical = 0
+script = ExtResource("2_msg")
+
+[node name="Screens" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_scr")

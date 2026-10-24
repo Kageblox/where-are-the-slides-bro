@@ -1,0 +1,139 @@
+[gd_resource type="Resource" script_class="GameConfig" format=3]
+
+[ext_resource type="Script" uid="uid://dujmnm2wr68b3" path="res://core/game_config.gd" id="1_cfg"]
+[ext_resource type="Script" uid="uid://7m0yh4833avq" path="res://messages/message_data.gd" id="2_msg"]
+[ext_resource type="Script" uid="uid://cxase8ardxoho" path="res://messages/reply_data.gd" id="3_rep"]
+[ext_resource type="PackedScene" uid="uid://dqtqmmd85bslg" path="res://scenes/Slide.tscn" id="4_slide"]
+
+[sub_resource type="Resource" id="r_bro_done_0"]
+script = ExtResource("3_rep")
+text = "Almost"
+composure_delta = 2.0
+
+[sub_resource type="Resource" id="r_bro_done_1"]
+script = ExtResource("3_rep")
+text = "Leave me alone"
+composure_delta = -6.0
+
+[sub_resource type="Resource" id="r_bro_done_2"]
+script = ExtResource("3_rep")
+text = "What presentation?"
+composure_delta = -10.0
+sets_flag = &"forgot_pres"
+follow_up_id = &"bro_panic"
+
+[sub_resource type="Resource" id="m_bro_done"]
+script = ExtResource("2_msg")
+id = &"bro_done"
+sender = "Bro"
+text = "Bro are you done with the presentation?"
+replies = Array[ExtResource("3_rep")]([SubResource("r_bro_done_0"), SubResource("r_bro_done_1"), SubResource("r_bro_done_2")])
+
+[sub_resource type="Resource" id="r_bro_panic_0"]
+script = ExtResource("3_rep")
+text = "...yes, that one"
+composure_delta = -4.0
+
+[sub_resource type="Resource" id="r_bro_panic_1"]
+script = ExtResource("3_rep")
+text = "Relax, I got this"
+composure_delta = 3.0
+
+[sub_resource type="Resource" id="m_bro_panic"]
+script = ExtResource("2_msg")
+id = &"bro_panic"
+sender = "Bro"
+text = "THE ONE DUE TODAY??"
+replies = Array[ExtResource("3_rep")]([SubResource("r_bro_panic_0"), SubResource("r_bro_panic_1")])
+follow_up_only = true
+
+[sub_resource type="Resource" id="r_mom_eat_0"]
+script = ExtResource("3_rep")
+text = "Yes"
+composure_delta = 3.0
+
+[sub_resource type="Resource" id="r_mom_eat_1"]
+script = ExtResource("3_rep")
+text = "Mom I'm busy"
+composure_delta = -3.0
+
+[sub_resource type="Resource" id="r_mom_eat_2"]
+script = ExtResource("3_rep")
+text = "...no"
+composure_delta = -1.0
+distraction = 2.0
+
+[sub_resource type="Resource" id="m_mom_eat"]
+script = ExtResource("2_msg")
+id = &"mom_eat"
+sender = "Mom"
+text = "Did you eat?"
+replies = Array[ExtResource("3_rep")]([SubResource("r_mom_eat_0"), SubResource("r_mom_eat_1"), SubResource("r_mom_eat_2")])
+
+[sub_resource type="Resource" id="r_group_slide4_0"]
+script = ExtResource("3_rep")
+text = "Me apparently"
+composure_delta = -5.0
+
+[sub_resource type="Resource" id="r_group_slide4_1"]
+script = ExtResource("3_rep")
+text = "Not me"
+composure_delta = 1.0
+sets_flag = &"dodged_slide4"
+follow_up_id = &"group_blame"
+
+[sub_resource type="Resource" id="r_group_slide4_2"]
+script = ExtResource("3_rep")
+text = "*leaves group*"
+composure_delta = -8.0
+distraction = 3.0
+
+[sub_resource type="Resource" id="m_group_slide4"]
+script = ExtResource("2_msg")
+id = &"group_slide4"
+sender = "Group chat"
+text = "who is doing slide 4??"
+replies = Array[ExtResource("3_rep")]([SubResource("r_group_slide4_0"), SubResource("r_group_slide4_1"), SubResource("r_group_slide4_2")])
+min_progress = 0.3
+
+[sub_resource type="Resource" id="r_group_blame_0"]
+script = ExtResource("3_rep")
+text = "Great."
+composure_delta = -3.0
+
+[sub_resource type="Resource" id="r_group_blame_1"]
+script = ExtResource("3_rep")
+text = "Fine."
+
+[sub_resource type="Resource" id="m_group_blame"]
+script = ExtResource("2_msg")
+id = &"group_blame"
+sender = "Group chat"
+text = "teacher says whoever skipped slide 4 presents it"
+replies = Array[ExtResource("3_rep")]([SubResource("r_group_blame_0"), SubResource("r_group_blame_1")])
+follow_up_only = true
+arrival_stress = 4.0
+
+[sub_resource type="Resource" id="r_wifi_0"]
+script = ExtResource("3_rep")
+text = "No"
+composure_delta = 2.0
+
+[sub_resource type="Resource" id="r_wifi_1"]
+script = ExtResource("3_rep")
+text = "How much?"
+composure_delta = -4.0
+distraction = 1.5
+
+[sub_resource type="Resource" id="m_wifi"]
+script = ExtResource("2_msg")
+id = &"wifi"
+sender = "Unknown"
+text = "Your neighbour is selling Wi-Fi passwords. Interested?"
+replies = Array[ExtResource("3_rep")]([SubResource("r_wifi_0"), SubResource("r_wifi_1")])
+min_progress = 0.5
+
+[resource]
+script = ExtResource("1_cfg")
+slides = Array[PackedScene]([ExtResource("4_slide")])
+messages = Array[ExtResource("2_msg")]([SubResource("m_bro_done"), SubResource("m_bro_panic"), SubResource("m_mom_eat"), SubResource("m_group_slide4"), SubResource("m_group_blame"), SubResource("m_wifi")])
