@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dqtqmmd85bslg"]
+
+[ext_resource type="Script" uid="uid://cqmwk2wb6dpvg" path="res://scripts/slide_editor.gd" id="1_2rfd7"]
+[ext_resource type="Texture2D" uid="uid://cdkkumoqvcdl0" path="res://assets/Placeholders/SideBar.png" id="1_rbl83"]
+[ext_resource type="PackedScene" uid="uid://7bl3obsd30tx" path="res://scenes/Slide_Element.tscn" id="2_00alm"]
+[ext_resource type="Texture2D" uid="uid://bumf2wpv2sdr6" path="res://assets/Placeholders/WhiteShit.jpg" id="2_tfcqe"]
+[ext_resource type="PackedScene" uid="uid://mn3pc8dimpnf" path="res://scenes/snap_target.tscn" id="4_rxfkf"]
+[ext_resource type="PackedScene" uid="uid://dcwekjrgovelk" path="res://scenes/typing_test.tscn" id="5_gqwe4"]
+
+[node name="Slide" type="Node2D" unique_id=973164792]
+
+[node name="SlideEditor" type="Node2D" parent="." unique_id=2013951191]
+position = Vector2(1361.4999, 286.00012)
+scale = Vector2(6.3262715, 5.9363065)
+script = ExtResource("1_2rfd7")
+
+[node name="Slide Bar" type="Sprite2D" parent="." unique_id=351574221]
+position = Vector2(464.00003, 237.74998)
+scale = Vector2(0.67449665, 2.0816553)
+texture = ExtResource("1_rbl83")
+
+[node name="Slide" type="Sprite2D" parent="." unique_id=174586425]
+position = Vector2(1361.7501, 240)
+scale = Vector2(6.3622885, 5.9363065)
+texture = ExtResource("2_tfcqe")
+
+[node name="Pallete" type="Node2D" parent="." unique_id=1781397980]
+
+[node name="SlideElement" parent="Pallete" unique_id=1887300992 instance=ExtResource("2_00alm")]
+position = Vector2(286, 398)
+size = Vector2(100, 100)
+is_template = true
+
+[node name="Visual" parent="Pallete/SlideElement" index="0" unique_id=1300765281]
+position = Vector2(194, 6)
+
+[node name="CollisionShape2D" parent="Pallete/SlideElement" index="1" unique_id=1930740526]
+position = Vector2(193, 6)
+
+[node name="Targets" type="Node2D" parent="." unique_id=386736932]
+position = Vector2(768, 217)
+
+[node name="Snap Target" parent="Targets" unique_id=1239340764 instance=ExtResource("4_rxfkf")]
+
+[node name="Elements" type="Node2D" parent="." unique_id=1860255922]
+
+[node name="TypingTests" type="Node2D" parent="." unique_id=714162964]
+
+[node name="TypingTest" parent="TypingTests" unique_id=1606810163 instance=ExtResource("5_gqwe4")]
+offset_left = 1325.9441
+offset_top = 445.152
+offset_right = 1918.0
+offset_bottom = 664.452
+text_to_type = "Hi Johann loves sliding down the slide with Gavin"
+
+[node name="TypingTest2" parent="TypingTests" unique_id=1149234679 instance=ExtResource("5_gqwe4")]
+offset_left = 1250.9441
+offset_top = 166.15201
+offset_right = 1879.0
+offset_bottom = 385.45203
+
+[node name="PopupLayer" type="CanvasLayer" parent="." unique_id=1024880330]
+
+[editable path="Pallete/SlideElement"]

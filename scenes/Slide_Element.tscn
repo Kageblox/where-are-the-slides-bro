@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://7bl3obsd30tx"]
+
+[ext_resource type="Script" uid="uid://d18xxyjlumf3" path="res://scripts/slide_element.gd" id="1_nhxoo"]
+[ext_resource type="Texture2D" uid="uid://kt8w0p0hudud" path="res://assets/Placeholders/icon.svg" id="2_5ieuq"]
+[ext_resource type="Script" uid="uid://dqkri4xl2yt7s" path="res://scripts/selection_ui.gd" id="3_pawm6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_usqm6"]
+size = Vector2(129, 130)
+
+[node name="Game Element" type="Area2D" unique_id=1887300992]
+z_index = 5
+script = ExtResource("1_nhxoo")
+
+[node name="Visual" type="Sprite2D" parent="." unique_id=1300765281]
+texture = ExtResource("2_5ieuq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1930740526]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_usqm6")
+
+[node name="SelectionUI" type="Node2D" parent="." unique_id=776695310]
+script = ExtResource("3_pawm6")
