@@ -117,7 +117,7 @@ static func get_cfg() -> GameConfig:
 
 @export_group("Difficulty weights (order: progress, skill, pace, stress, virus, popup_fail)")
 @export var w_general: PackedFloat32Array = PackedFloat32Array([0.40, 0.20, 0.05, 0.10, 0.15, 0.10])
-@export var w_popup_rate: PackedFloat32Array = PackedFloat32Array([0.45, 0.20, 0.05, 0.10, 0.15, 0.05])
+@export var w_popup_rate: PackedFloat32Array = PackedFloat32Array([0.65, 0.60, 0.45, 0.40, 0.45, 0.45])
 @export var w_popup_complexity: PackedFloat32Array = PackedFloat32Array([0.60, 0.30, 0.0, 0.0, 0.10, 0.0])
 @export var w_popup_window: PackedFloat32Array = PackedFloat32Array([0.50, 0.25, 0.0, 0.15, 0.0, 0.10])
 @export var w_message_rate: PackedFloat32Array = PackedFloat32Array([0.50, 0.15, 0.0, 0.25, 0.0, 0.10])
