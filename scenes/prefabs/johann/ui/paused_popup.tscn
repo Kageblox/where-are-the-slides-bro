@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ciog3l8poj28r"]
 
-[ext_resource type="Script" uid="uid://hf1flc8md0ci" path="res://scripts/johann/ui/popups/paused_popup.gd" id="1_1c620"]
+[ext_resource type="Script" uid="uid://hf1flc8md0ci" path="res://scripts/johann/ui/popups/system/paused_popup.gd" id="1_1c620"]
 [ext_resource type="Script" uid="uid://cqh2lc88r7ptt" path="res://scripts/johann/ui/j_popup_pressable.gd" id="1_jx138"]
 [ext_resource type="Resource" uid="uid://b2aqwgn1xd2yg" path="res://resources/tweens/modulate/modulate_invisible_to_transparent.tres" id="2_1c620"]
 [ext_resource type="Resource" uid="uid://dpf6veps72er6" path="res://resources/tweens/modulate/modulate_transparent_to_invisible.tres" id="3_u5n1a"]

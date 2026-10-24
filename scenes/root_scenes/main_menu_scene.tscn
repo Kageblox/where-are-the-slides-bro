@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://btl1b5as5qb6g" path="res://scripts/johann/root_scene/main_menu.gd" id="1_c7lld"]
 [ext_resource type="PackedScene" uid="uid://cnkysvjhscm" path="res://scenes/prefabs/johann/ui/generic/j_label_button.tscn" id="1_oet81"]
+[ext_resource type="Texture2D" uid="uid://bjs13jseyqlq5" path="res://images/ui/main_menu/TITLE SCREEN PICTURE.png" id="2_c7lld"]
+[ext_resource type="Texture2D" uid="uid://dx1xnf3lb2m7d" path="res://images/ui/window/basic_window.png" id="4_q7aqv"]
 
 [node name="MainMenuScene" type="Node" unique_id=822257853]
 script = ExtResource("1_c7lld")
@@ -15,21 +17,44 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Background" type="TextureRect" parent="Control" unique_id=2055056655]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_c7lld")
+
 [node name="SettingsButton" parent="Control" unique_id=596877703 instance=ExtResource("1_oet81")]
 layout_mode = 0
-offset_left = 372.0
-offset_top = 224.0
-offset_right = 442.0
-offset_bottom = 255.0
+offset_left = 557.0
+offset_top = 253.0
+offset_right = 642.0
+offset_bottom = 284.0
 text = "Settings"
 
 [node name="StartGameButton" parent="Control" unique_id=1201679177 instance=ExtResource("1_oet81")]
 layout_mode = 0
-offset_left = 385.0
-offset_top = 300.0
-offset_right = 455.0
-offset_bottom = 331.0
+offset_left = 526.0
+offset_top = 209.0
+offset_right = 641.0
+offset_bottom = 240.0
 text = "Start Game"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=492914219]
+texture_filter = 1
+offset_left = 140.00005
+offset_top = 268.0
+offset_right = 196.57149
+offset_bottom = 320.5714
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("4_q7aqv")
+region_rect = Rect2(0, 0, 100, 70)
+patch_margin_left = 1
+patch_margin_top = 5
+patch_margin_right = 16
+patch_margin_bottom = 1
 
 [connection signal="pressed" from="Control/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="Control/StartGameButton" to="." method="_on_start_game_button_pressed"]

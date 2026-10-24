@@ -5,6 +5,11 @@ var loading_popup: Resource = preload("res://scenes/prefabs/johann/ui/loading_po
 var paused_popup: Resource = preload("res://scenes/prefabs/johann/ui/paused_popup.tscn")
 var question_popup: Resource = preload("res://scenes/prefabs/johann/ui/question_popup.tscn")
 
+
+## Minigame Popups
+var select_the_correct_image_popup: Resource = preload("res://scenes/prefabs/johann/ui/minigames/select_the_correct_image_popup.tscn")
+
+
 var visible_size: Vector2:
 	get:
 		return get_viewport().get_visible_rect().size

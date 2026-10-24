@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://crqefaofc4swo"]
+
+[ext_resource type="Script" uid="uid://ctyqjgjjq8mgj" path="res://scripts/johann/ui/popups/minigames/select_the_correct_image_popup.gd" id="1_0slbb"]
+[ext_resource type="Script" uid="uid://k14me5tuweew" path="res://scripts/johann/ui/j_popup_element.gd" id="2_344xk"]
+[ext_resource type="Resource" uid="uid://wfsaxeh518gk" path="res://resources/tweens/center/center_close.tres" id="3_344xk"]
+[ext_resource type="Resource" uid="uid://dc0e355mwyhd5" path="res://resources/tweens/center/center_open.tres" id="3_tyy1k"]
+[ext_resource type="Texture2D" uid="uid://dx1xnf3lb2m7d" path="res://images/ui/window/basic_window.png" id="4_gbc85"]
+[ext_resource type="FontFile" uid="uid://d1t0i8dupfklb" path="res://resources/fonts/aseprite.otf" id="5_6x2um"]
+[ext_resource type="PackedScene" uid="uid://bqmmq0q8u4pk" path="res://scenes/prefabs/johann/ui/generic/j_texture_button.tscn" id="6_agsbs"]
+
+[node name="SelectTheCorrectImagePopup" type="Control" unique_id=947669594]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0slbb")
+open_duration = 0.25
+close_duration = 0.25
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=915664027]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.25
+anchor_right = 0.75
+anchor_bottom = 0.75
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_344xk")
+open_tweens = ExtResource("3_tyy1k")
+close_tweens = ExtResource("3_344xk")
+
+[node name="Background" type="NinePatchRect" parent="PanelContainer" unique_id=290626031]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_gbc85")
+region_rect = Rect2(0, 0, 400, 280)
+patch_margin_left = 4
+patch_margin_top = 20
+patch_margin_right = 68
+patch_margin_bottom = 4
+
+[node name="Margins" type="MarginContainer" parent="PanelContainer" unique_id=300706096]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Margins" unique_id=1181440715]
+layout_mode = 2
+
+[node name="PleaseSelectTheImageContaining" type="Label" parent="PanelContainer/Margins/VBoxContainer" unique_id=885564656]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_6x2um")
+text = "Please select the image containing:"
+
+[node name="Margins" type="MarginContainer" parent="PanelContainer/Margins/VBoxContainer" unique_id=504602910]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="PleaseSelectTheImageContaining" type="Label" parent="PanelContainer/Margins/VBoxContainer/Margins" unique_id=8352475]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_6x2um")
+theme_override_font_sizes/font_size = 32
+text = "Slides"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Margins/VBoxContainer" unique_id=2075755517]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Option1" parent="PanelContainer/Margins/VBoxContainer/HBoxContainer" unique_id=596877703 instance=ExtResource("6_agsbs")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Option2" parent="PanelContainer/Margins/VBoxContainer/HBoxContainer" unique_id=815481485 instance=ExtResource("6_agsbs")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Option3" parent="PanelContainer/Margins/VBoxContainer/HBoxContainer" unique_id=1945972643 instance=ExtResource("6_agsbs")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="PanelContainer/Margins/VBoxContainer/HBoxContainer/Option1" to="." method="_on_option_1_pressed"]
+[connection signal="pressed" from="PanelContainer/Margins/VBoxContainer/HBoxContainer/Option2" to="." method="_on_option_2_pressed"]
+[connection signal="pressed" from="PanelContainer/Margins/VBoxContainer/HBoxContainer/Option3" to="." method="_on_option_3_pressed"]

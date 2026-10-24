@@ -1,11 +1,24 @@
 [gd_scene format=3 uid="uid://x3vq4abo27b"]
 
-[ext_resource type="Script" uid="uid://ca1c3ixb5ab0d" path="res://scripts/johann/root_scene/root_scene.gd" id="1_rquew"]
+[ext_resource type="Script" uid="uid://diik6owme6vnw" path="res://scenes/root_scenes/gameplay_scene.gd" id="1_t2wa4"]
 [ext_resource type="Texture2D" uid="uid://c7dtupre28qct" path="res://icon.svg" id="2_ot868"]
+[ext_resource type="Texture2D" uid="uid://da7fmiulvp63j" path="res://images/PPT.png" id="2_t2wa4"]
 [ext_resource type="Script" uid="uid://dic3i1kyon2yi" path="res://scripts/johann/others/spinner.gd" id="3_ac4pu"]
+[ext_resource type="PackedScene" uid="uid://cnkysvjhscm" path="res://scenes/prefabs/johann/ui/generic/j_label_button.tscn" id="4_huliv"]
 
 [node name="GameplayScene" type="Node" unique_id=1447685937]
-script = ExtResource("1_rquew")
+script = ExtResource("1_t2wa4")
+
+[node name="Background" type="TextureRect" parent="." unique_id=227585421]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_t2wa4")
+expand_mode = 4
+stretch_mode = 5
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=673942286]
 process_mode = 1
@@ -14,12 +27,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
+offset_left = -454.0
+offset_top = 100.0
+offset_right = -326.0
+offset_bottom = 228.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("2_ot868")
 script = ExtResource("3_ac4pu")
+
+[node name="SelectTheImageButton" parent="." unique_id=596877703 instance=ExtResource("4_huliv")]
+offset_left = 782.0
+offset_top = 117.0
+offset_right = 954.0
+offset_bottom = 145.0
+text = "Select The Image"
+
+[connection signal="pressed" from="SelectTheImageButton" to="." method="_on_spawn_popup_button_pressed"]
