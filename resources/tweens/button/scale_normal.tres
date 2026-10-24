@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="JTween" format=3 uid="uid://csn4pem5dl6ex"]
+
+[ext_resource type="Script" uid="uid://pyu6w1fyxk53" path="res://scripts/johann/resource/tween.gd" id="1_177f5"]
+
+[resource]
+script = ExtResource("1_177f5")
+property = "scale"
+initial_val = null
+final_val = Vector2(1, 1)
+transition = 1
+ease = 1
+duration = 0.125
+metadata/_custom_type_script = "uid://pyu6w1fyxk53"

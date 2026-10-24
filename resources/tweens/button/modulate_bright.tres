@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="JTween" format=3 uid="uid://dlli35sp7wkt4"]
+
+[ext_resource type="Script" uid="uid://pyu6w1fyxk53" path="res://scripts/johann/resource/tween.gd" id="1_sxhax"]
+
+[resource]
+script = ExtResource("1_sxhax")
+property = "modulate"
+initial_val = null
+final_val = Color(1.353256, 1.353256, 1.353256, 1)
+transition = 10
+ease = 1
+duration = 0.125
+metadata/_custom_type_script = "uid://pyu6w1fyxk53"

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://8d2e824hyyb4"]
+
+[ext_resource type="Script" uid="uid://btl1b5as5qb6g" path="res://scripts/johann/root_scene/main_menu.gd" id="1_c7lld"]
+[ext_resource type="PackedScene" uid="uid://cnkysvjhscm" path="res://scenes/prefabs/johann/ui/generic/j_button.tscn" id="1_oet81"]
+
+[node name="MainMenuScene" type="Node" unique_id=822257853 node_paths=PackedStringArray("settings_button")]
+script = ExtResource("1_c7lld")
+settings_button = NodePath("Control/SettingsButton")
+
+[node name="Control" type="Control" parent="." unique_id=156161287]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsButton" parent="Control" unique_id=1768111964 instance=ExtResource("1_oet81")]
+texture_filter = 1
+layout_mode = 0
+offset_left = 727.0
+offset_top = 296.0
+offset_right = 827.0
+offset_bottom = 396.0
+texture = null

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="JTween" format=3 uid="uid://dudg35b3t14i2"]
+
+[ext_resource type="Script" uid="uid://pyu6w1fyxk53" path="res://scripts/johann/resource/tween.gd" id="1_p0ian"]
+
+[resource]
+script = ExtResource("1_p0ian")
+property = "anchor_right"
+initial_val = 1.75
+final_val = 0.75
+ignore_time_scale = true
+transition = 10
+ease = 1
+duration = 0.5
+metadata/_custom_type_script = "uid://pyu6w1fyxk53"

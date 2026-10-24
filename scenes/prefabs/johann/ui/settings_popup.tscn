@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c3dj0qq0xn02q"]
+
+[ext_resource type="Script" uid="uid://dlkv12382o7pw" path="res://scripts/johann/ui/j_popup.gd" id="1_vu75m"]
+[ext_resource type="Script" uid="uid://k14me5tuweew" path="res://scripts/johann/ui/j_popup_element.gd" id="2_japwd"]
+[ext_resource type="Script" uid="uid://pyu6w1fyxk53" path="res://scripts/johann/resource/tween.gd" id="3_h0nbe"]
+[ext_resource type="Resource" uid="uid://de53jr7wujrbv" path="res://resources/tweens/popup_background/modulate_invisible_to_transparent.tres" id="4_hixro"]
+[ext_resource type="Resource" uid="uid://bkjqmtrxpsbrj" path="res://resources/tweens/popup_background/modulate_transparent_to_invisible.tres" id="5_crdk5"]
+[ext_resource type="Resource" uid="uid://c1h6rxkqn3nfy" path="res://resources/tweens/movement/slide_right_to_center/slide_right_to_center_anchor_left.tres" id="6_whu2e"]
+[ext_resource type="Resource" uid="uid://dudg35b3t14i2" path="res://resources/tweens/movement/slide_right_to_center/slide_right_to_center_anchor_right.tres" id="7_erb57"]
+[ext_resource type="Resource" uid="uid://bdittpa7vjadw" path="res://resources/tweens/movement/slide_center_to_left/slide_center_to_left_anchor_left.tres" id="8_ixp87"]
+[ext_resource type="Resource" uid="uid://dmlie7hb1kmhi" path="res://resources/tweens/movement/slide_center_to_left/slide_center_to_left_anchor_right.tres" id="9_m7fig"]
+
+[node name="SettingsPopup" type="Control" unique_id=1175046508]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_vu75m")
+
+[node name="PopupBackground" type="ColorRect" parent="." unique_id=1171877619]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5019608)
+script = ExtResource("2_japwd")
+open_tweens = Array[ExtResource("3_h0nbe")]([ExtResource("4_hixro")])
+close_tweens = Array[ExtResource("3_h0nbe")]([ExtResource("5_crdk5")])
+
+[node name="PopupPanel" type="Panel" parent="." unique_id=655258271]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.25
+anchor_right = 0.75
+anchor_bottom = 0.75
+offset_right = 0.00024414063
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_japwd")
+open_tweens = Array[ExtResource("3_h0nbe")]([ExtResource("6_whu2e"), ExtResource("7_erb57")])
+close_tweens = Array[ExtResource("3_h0nbe")]([ExtResource("8_ixp87"), ExtResource("9_m7fig")])
