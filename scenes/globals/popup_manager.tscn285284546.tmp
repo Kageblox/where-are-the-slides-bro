@@ -6,10 +6,10 @@
 process_mode = 3
 script = ExtResource("1_sc5eg")
 
-[node name="Pausable" type="CanvasLayer" parent="." unique_id=997569184]
+[node name="Unpaused" type="CanvasLayer" parent="." unique_id=997569184]
 process_mode = 1
 layer = 50
 
-[node name="When Paused" type="CanvasLayer" parent="." unique_id=1579457589]
-process_mode = 2
+[node name="Paused" type="CanvasLayer" parent="." unique_id=1579457589]
+process_mode = 3
 layer = 100

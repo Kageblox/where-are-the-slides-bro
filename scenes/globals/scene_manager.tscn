@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://hdabr2qqtb2j"]
+
+[ext_resource type="Script" uid="uid://c8p506ncjufgl" path="res://scripts/johann/global/scene_manager.gd" id="1_oo7j1"]
+[ext_resource type="PackedScene" uid="uid://bqmmq0q8u4pk" path="res://scenes/prefabs/johann/ui/generic/j_texture_button.tscn" id="2_uyxjk"]
+[ext_resource type="Texture2D" uid="uid://cntk2nqtuse1w" path="res://images/ui/icons/continue playing icon.png" id="3_q3nau"]
+
+[node name="SceneManager" type="Node" unique_id=1518897256]
+script = ExtResource("1_oo7j1")
+
+[node name="PauseButton" type="CanvasLayer" parent="." unique_id=1011509227]
+layer = 50
+
+[node name="PauseButton" parent="PauseButton" unique_id=596877703 instance=ExtResource("2_uyxjk")]
+process_mode = 1
+texture = ExtResource("3_q3nau")
+
+[connection signal="pressed" from="PauseButton/PauseButton" to="." method="_on_pause_button_pressed"]

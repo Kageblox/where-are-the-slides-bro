@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bqmmq0q8u4pk"]
+
+[ext_resource type="Script" uid="uid://doy0ykskma3bp" path="res://scripts/johann/ui/j_texture_button.gd" id="1_d81s7"]
+[ext_resource type="Resource" uid="uid://btkxy05jy7by4" path="res://resources/tweens/button/button_default_tween_collection.tres" id="2_ekav2"]
+[ext_resource type="Texture2D" uid="uid://c7dtupre28qct" path="res://icon.svg" id="2_ikf7o"]
+[ext_resource type="Resource" uid="uid://bbkhpoi71d6my" path="res://resources/tweens/button/button_hover_tween_collection.tres" id="3_ixgk5"]
+[ext_resource type="Resource" uid="uid://bjpdrlj6p8llq" path="res://resources/tweens/button/button_disabled_tween_collection.tres" id="4_03hr1"]
+[ext_resource type="Resource" uid="uid://cgvr5slexe826" path="res://resources/tweens/button/button_pressed_tween_collection.tres" id="5_ckdv7"]
+
+[node name="JTextureButton" type="PanelContainer" unique_id=596877703]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("1_d81s7")
+texture = ExtResource("2_ikf7o")
+default_tweens = ExtResource("2_ekav2")
+hover_tweens = ExtResource("3_ixgk5")
+disabled_tweens = ExtResource("4_03hr1")
+pressed_tweens = ExtResource("5_ckdv7")
+
+[node name="GFX" type="PanelContainer" parent="." unique_id=1742531036]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_transform_enabled = true
+mouse_filter = 2
+
+[node name="Texture" type="TextureRect" parent="GFX" unique_id=2119559533]
+layout_mode = 2
+texture = ExtResource("2_ikf7o")
+expand_mode = 3

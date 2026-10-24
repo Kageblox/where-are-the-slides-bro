@@ -9,6 +9,7 @@ signal on_close_end()
 
 @export var open_duration: float = 0.5
 @export var close_duration: float = 0.5
+@export var pause_game_when_open: bool = false
 
 var popup_timer: Timer
 var closing: bool = false

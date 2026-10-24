@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://cgvr5slexe826" path="res://resources/tweens/button/button_pressed_tween_collection.tres" id="5_unscy"]
 
 [node name="JLabelButton" type="PanelContainer" unique_id=596877703]
+self_modulate = Color(1, 1, 1, 0)
 offset_right = 42.0
 offset_bottom = 31.0
 script = ExtResource("1_sjf38")
@@ -16,6 +17,7 @@ disabled_tweens = ExtResource("4_u5mcc")
 pressed_tweens = ExtResource("5_unscy")
 
 [node name="GFX" type="PanelContainer" parent="." unique_id=1742531036]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 offset_transform_enabled = true
 mouse_filter = 2

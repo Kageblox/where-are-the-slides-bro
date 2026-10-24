@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://cpyef1hg0ibg0"]
+
+[ext_resource type="Script" uid="uid://ddocy4f2h8iqc" path="res://scripts/johann/ui/popups/question_popup.gd" id="1_3c2yo"]
+[ext_resource type="Script" uid="uid://cqh2lc88r7ptt" path="res://scripts/johann/ui/j_popup_pressable.gd" id="2_dtgmc"]
+[ext_resource type="Resource" uid="uid://b2aqwgn1xd2yg" path="res://resources/tweens/modulate/modulate_invisible_to_transparent.tres" id="3_nyur6"]
+[ext_resource type="Resource" uid="uid://dpf6veps72er6" path="res://resources/tweens/modulate/modulate_transparent_to_invisible.tres" id="4_r53tl"]
+[ext_resource type="Script" uid="uid://k14me5tuweew" path="res://scripts/johann/ui/j_popup_element.gd" id="5_46sb8"]
+[ext_resource type="Resource" uid="uid://djh5ysu8ksb75" path="res://resources/tweens/medium/medium_slide_right_to_center.tres" id="6_3c2yo"]
+[ext_resource type="Resource" uid="uid://dftkjqbinbp1h" path="res://resources/tweens/medium/medium_slide_center_to_left.tres" id="7_dtgmc"]
+[ext_resource type="PackedScene" uid="uid://cnkysvjhscm" path="res://scenes/prefabs/johann/ui/generic/j_label_button.tscn" id="8_du10b"]
+
+[node name="QuestionPopup" type="Control" unique_id=1175046508]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_3c2yo")
+pause_game_when_open = true
+
+[node name="Background" type="ColorRect" parent="." unique_id=1171877619]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5019608)
+script = ExtResource("2_dtgmc")
+open_tweens = ExtResource("3_nyur6")
+close_tweens = ExtResource("4_r53tl")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=310966741]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.5
+anchor_right = 0.75
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_46sb8")
+open_tweens = ExtResource("6_3c2yo")
+close_tweens = ExtResource("7_dtgmc")
+
+[node name="PanelBackground" type="ColorRect" parent="Panel" unique_id=1042236915]
+layout_mode = 2
+color = Color(0.1254902, 0.1254902, 0.1254902, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1660737234]
+layout_mode = 2
+
+[node name="Margins" type="MarginContainer" parent="Panel/VBoxContainer" unique_id=680944185]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Question" type="Label" parent="Panel/VBoxContainer/Margins" unique_id=895321654]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Question"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1475698687]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="OptionButton" parent="Panel/VBoxContainer/VBoxContainer" unique_id=596877703 instance=ExtResource("8_du10b")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Option"
+
+[connection signal="pressed" from="Background" to="." method="_on_background_pressed"]

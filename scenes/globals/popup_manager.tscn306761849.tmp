@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b77j0r1fsnx5r"]
+
+[ext_resource type="Script" uid="uid://cqv5qaf3j035b" path="res://scripts/johann/global/popup_manager.gd" id="1_sc5eg"]
+
+[node name="PopupManager" type="Node" unique_id=2048111803]
+process_mode = 3
+script = ExtResource("1_sc5eg")
+
+[node name="Unpaused" type="CanvasLayer" parent="." unique_id=997569184]
+process_mode = 1
+layer = 50
+
+[node name="Paused" type="CanvasLayer" parent="." unique_id=1579457589]
+process_mode = 3
+layer = 100

@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://ciog3l8poj28r"]
+
+[ext_resource type="Script" uid="uid://hf1flc8md0ci" path="res://scripts/johann/ui/popups/paused_popup.gd" id="1_1c620"]
+[ext_resource type="Script" uid="uid://cqh2lc88r7ptt" path="res://scripts/johann/ui/j_popup_pressable.gd" id="1_jx138"]
+[ext_resource type="Resource" uid="uid://b2aqwgn1xd2yg" path="res://resources/tweens/modulate/modulate_invisible_to_transparent.tres" id="2_1c620"]
+[ext_resource type="Resource" uid="uid://dpf6veps72er6" path="res://resources/tweens/modulate/modulate_transparent_to_invisible.tres" id="3_u5n1a"]
+[ext_resource type="Script" uid="uid://k14me5tuweew" path="res://scripts/johann/ui/j_popup_element.gd" id="4_36ne0"]
+[ext_resource type="Resource" uid="uid://fel3b4nyuee4" path="res://resources/tweens/narrow/narrow_slide_right_to_center.tres" id="6_1c620"]
+[ext_resource type="PackedScene" uid="uid://cnkysvjhscm" path="res://scenes/prefabs/johann/ui/generic/j_label_button.tscn" id="7_85qop"]
+[ext_resource type="Resource" uid="uid://l4onr1xy2eyf" path="res://resources/tweens/narrow/narrow_slide_center_to_left.tres" id="7_u5n1a"]
+
+[node name="PausedPopup" type="Control" unique_id=1175046508]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_1c620")
+pause_game_when_open = true
+
+[node name="Background" type="ColorRect" parent="." unique_id=1171877619]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5019608)
+script = ExtResource("1_jx138")
+open_tweens = ExtResource("2_1c620")
+close_tweens = ExtResource("3_u5n1a")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=310966741]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.375
+anchor_top = 0.5
+anchor_right = 0.625
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_36ne0")
+open_tweens = ExtResource("6_1c620")
+close_tweens = ExtResource("7_u5n1a")
+
+[node name="PanelBackground" type="ColorRect" parent="Panel" unique_id=600340424]
+layout_mode = 2
+color = Color(0.1254902, 0.1254902, 0.1254902, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1660737234]
+layout_mode = 2
+
+[node name="Paused" type="Label" parent="Panel/VBoxContainer" unique_id=895321654]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer" unique_id=2056368719]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="SettingsButton" parent="Panel/VBoxContainer/VBoxContainer" unique_id=596877703 instance=ExtResource("7_85qop")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Settings"
+
+[node name="ReturnToMainMenu" parent="Panel/VBoxContainer/VBoxContainer" unique_id=1635129766 instance=ExtResource("7_85qop")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Return to Main Menu"
+
+[node name="ResumeGameButton" parent="Panel/VBoxContainer/VBoxContainer" unique_id=196912803 instance=ExtResource("7_85qop")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Resume Game"
+
+[connection signal="pressed" from="Background" to="." method="_on_background_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/VBoxContainer/ReturnToMainMenu" to="." method="_on_return_to_main_menu_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/VBoxContainer/ResumeGameButton" to="." method="_on_resume_game_button_pressed"]

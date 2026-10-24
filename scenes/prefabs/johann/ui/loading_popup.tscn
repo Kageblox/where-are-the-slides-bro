@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cdf2it00rxtqg"]
+
+[ext_resource type="Script" uid="uid://0ptr7gscjmy5" path="res://scripts/johann/ui/popups/loading_popup.gd" id="1_2ipyp"]
+[ext_resource type="Script" uid="uid://k14me5tuweew" path="res://scripts/johann/ui/j_popup_element.gd" id="2_nmk30"]
+[ext_resource type="Resource" uid="uid://dge3wv5cqgbmm" path="res://resources/tweens/fullscreen/fullscreen_slide_right_to_center.tres" id="3_a6klx"]
+[ext_resource type="Resource" uid="uid://c07e4axeeams7" path="res://resources/tweens/fullscreen/fullscreen_slide_center_to_left.tres" id="4_wrs8o"]
+
+[node name="LoadingPopup" type="Control" unique_id=1678872534]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ipyp")
+open_duration = 1.25
+
+[node name="Background" type="ColorRect" parent="." unique_id=1332170387]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2509804, 0.2509804, 0.2509804, 1)
+script = ExtResource("2_nmk30")
+open_tweens = ExtResource("3_a6klx")
+close_tweens = ExtResource("4_wrs8o")
+
+[node name="Label" type="Label" parent="Background" unique_id=493870746]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Loading"
+horizontal_alignment = 1
+vertical_alignment = 1

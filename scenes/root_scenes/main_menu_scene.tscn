@@ -5,6 +5,7 @@
 
 [node name="MainMenuScene" type="Node" unique_id=822257853]
 script = ExtResource("1_c7lld")
+pausable = false
 
 [node name="Control" type="Control" parent="." unique_id=156161287]
 layout_mode = 3
@@ -22,4 +23,13 @@ offset_right = 442.0
 offset_bottom = 255.0
 text = "Settings"
 
+[node name="StartGameButton" parent="Control" unique_id=1201679177 instance=ExtResource("1_oet81")]
+layout_mode = 0
+offset_left = 385.0
+offset_top = 300.0
+offset_right = 455.0
+offset_bottom = 331.0
+text = "Start Game"
+
 [connection signal="pressed" from="Control/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Control/StartGameButton" to="." method="_on_start_game_button_pressed"]
