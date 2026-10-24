@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://fel3b4nyuee4" path="res://resources/tweens/narrow/narrow_slide_right_to_center.tres" id="6_1c620"]
 [ext_resource type="PackedScene" uid="uid://cnkysvjhscm" path="res://scenes/prefabs/johann/ui/generic/j_label_button.tscn" id="7_85qop"]
 [ext_resource type="Resource" uid="uid://l4onr1xy2eyf" path="res://resources/tweens/narrow/narrow_slide_center_to_left.tres" id="7_u5n1a"]
+[ext_resource type="FontFile" uid="uid://d1t0i8dupfklb" path="res://resources/fonts/aseprite.otf" id="8_u5n1a"]
 
 [node name="PausedPopup" type="Control" unique_id=1175046508]
 layout_mode = 3
@@ -53,8 +54,16 @@ color = Color(0.1254902, 0.1254902, 0.1254902, 1)
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1660737234]
 layout_mode = 2
 
-[node name="Paused" type="Label" parent="Panel/VBoxContainer" unique_id=895321654]
+[node name="Margins" type="MarginContainer" parent="Panel/VBoxContainer" unique_id=2071030493]
 layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Paused" type="Label" parent="Panel/VBoxContainer/Margins" unique_id=895321654]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_u5n1a")
 theme_override_font_sizes/font_size = 50
 text = "Paused"
 horizontal_alignment = 1

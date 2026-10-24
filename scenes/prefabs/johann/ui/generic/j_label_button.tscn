@@ -5,11 +5,12 @@
 [ext_resource type="Resource" uid="uid://bbkhpoi71d6my" path="res://resources/tweens/button/button_hover_tween_collection.tres" id="3_7wrnx"]
 [ext_resource type="Resource" uid="uid://bjpdrlj6p8llq" path="res://resources/tweens/button/button_disabled_tween_collection.tres" id="4_u5mcc"]
 [ext_resource type="Resource" uid="uid://cgvr5slexe826" path="res://resources/tweens/button/button_pressed_tween_collection.tres" id="5_unscy"]
+[ext_resource type="FontFile" uid="uid://d1t0i8dupfklb" path="res://resources/fonts/aseprite.otf" id="6_unscy"]
 
 [node name="JLabelButton" type="PanelContainer" unique_id=596877703]
 self_modulate = Color(1, 1, 1, 0)
-offset_right = 42.0
-offset_bottom = 31.0
+offset_right = 67.0
+offset_bottom = 24.0
 script = ExtResource("1_sjf38")
 default_tweens = ExtResource("2_ur3jt")
 hover_tweens = ExtResource("3_7wrnx")
@@ -29,13 +30,15 @@ color = Color(0.2509804, 0.2509804, 0.2509804, 1)
 [node name="Margins" type="MarginContainer" parent="GFX" unique_id=1412053542]
 propagate_maximum_size = false
 layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
 
 [node name="Label" type="Label" parent="GFX/Margins" unique_id=909325805]
 propagate_maximum_size = true
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("6_unscy")
+theme_override_font_sizes/font_size = 16
 text = "Button"
