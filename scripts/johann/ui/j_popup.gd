@@ -12,23 +12,26 @@ signal on_close_end()
 
 var popup_timer: Timer
 var closing: bool = false
+var interactable: bool = true
 
 func _enter_tree() -> void:
 	popup_timer = Timer.new()
 	add_child(popup_timer)
+	popup_timer.timeout.connect(func():
+		if not closing:
+			on_open_end.emit()
+			interactable = true
+		else:
+			on_close_end.emit()
+			queue_free())
 
-func _ready() -> void:
+func open() -> void:
+	interactable = false
 	on_open_start.emit()
 	popup_timer.start(open_duration)
 
 func close():
+	interactable = false
 	on_close_start.emit()
 	closing = true
 	popup_timer.start(close_duration)
-
-func _timeout():
-	if not closing:
-		on_open_end.emit()
-	else:
-		on_close_end.emit()
-		queue_free()

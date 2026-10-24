@@ -17,3 +17,5 @@ func open_popup(popup_resource: Resource):
 		new_popup.process_mode = Node.PROCESS_MODE_PAUSABLE
 		$"Pausable".add_child(new_popup)
 		$"Pausable".move_child(new_popup, -1)
+	
+	new_popup.open()

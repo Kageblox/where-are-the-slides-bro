@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="JTweenCollection" format=3 uid="uid://bjpdrlj6p8llq"]
+
+[ext_resource type="Script" uid="uid://di5mdanpnbwx3" path="res://scripts/johann/resource/tween_collection.gd" id="1_4murk"]
+[ext_resource type="Script" uid="uid://pyu6w1fyxk53" path="res://scripts/johann/resource/tween.gd" id="2_kr67h"]
+
+[sub_resource type="Resource" id="Resource_sc5eg"]
+script = ExtResource("2_kr67h")
+property = "offset_transform_scale"
+initial_val = null
+final_val = Vector2(1, 1)
+ignore_time_scale = true
+transition = 1
+ease = 1
+duration = 0.125
+metadata/_custom_type_script = "uid://pyu6w1fyxk53"
+
+[sub_resource type="Resource" id="Resource_p2yjp"]
+script = ExtResource("2_kr67h")
+property = "modulate"
+initial_val = null
+final_val = Color(0.5019608, 0.5019608, 0.5019608, 1)
+ignore_time_scale = true
+transition = 1
+ease = 1
+duration = 0.125
+metadata/_custom_type_script = "uid://pyu6w1fyxk53"
+
+[resource]
+script = ExtResource("1_4murk")
+tween_collection = Array[ExtResource("2_kr67h")]([SubResource("Resource_sc5eg"), SubResource("Resource_p2yjp")])
+metadata/_custom_type_script = "uid://di5mdanpnbwx3"

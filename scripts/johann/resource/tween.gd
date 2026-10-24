@@ -31,3 +31,5 @@ static func StartTween(
 	elif _tween is Array[JTween]:
 		for _individualTween in _tween:
 			StartTween(object, _individualTween)
+	elif _tween is JTweenCollection:
+		StartTween(object, _tween.tween_collection)

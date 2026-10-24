@@ -1,7 +1,7 @@
 class_name JPopupElement extends Control
 
-@export var open_tweens: Array[JTween]
-@export var close_tweens: Array[JTween]
+@export var open_tweens: JTweenCollection
+@export var close_tweens: JTweenCollection
 
 var popup: JPopup
 

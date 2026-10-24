@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cnkysvjhscm"]
+
+[ext_resource type="Script" uid="uid://bidldcrq4ggik" path="res://scripts/johann/ui/j_label_button.gd" id="1_sjf38"]
+[ext_resource type="Resource" uid="uid://btkxy05jy7by4" path="res://resources/tweens/button/button_default_tween_collection.tres" id="2_ur3jt"]
+[ext_resource type="Resource" uid="uid://bbkhpoi71d6my" path="res://resources/tweens/button/button_hover_tween_collection.tres" id="3_7wrnx"]
+[ext_resource type="Resource" uid="uid://bjpdrlj6p8llq" path="res://resources/tweens/button/button_disabled_tween_collection.tres" id="4_u5mcc"]
+[ext_resource type="Resource" uid="uid://cgvr5slexe826" path="res://resources/tweens/button/button_pressed_tween_collection.tres" id="5_unscy"]
+
+[node name="JLabelButton" type="PanelContainer" unique_id=596877703]
+offset_right = 42.0
+offset_bottom = 31.0
+script = ExtResource("1_sjf38")
+default_tweens = ExtResource("2_ur3jt")
+hover_tweens = ExtResource("3_7wrnx")
+disabled_tweens = ExtResource("4_u5mcc")
+pressed_tweens = ExtResource("5_unscy")
+
+[node name="GFX" type="PanelContainer" parent="." unique_id=1742531036]
+layout_mode = 2
+offset_transform_enabled = true
+mouse_filter = 2
+
+[node name="Background" type="ColorRect" parent="GFX" unique_id=1388704031]
+layout_mode = 2
+color = Color(0.2509804, 0.2509804, 0.2509804, 1)
+
+[node name="Margins" type="MarginContainer" parent="GFX" unique_id=1412053542]
+propagate_maximum_size = false
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="GFX/Margins" unique_id=909325805]
+propagate_maximum_size = true
+layout_mode = 2
+size_flags_vertical = 1
+text = "Button"

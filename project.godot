@@ -21,10 +21,7 @@ PopupManager="*uid://b77j0r1fsnx5r"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [physics]
 
