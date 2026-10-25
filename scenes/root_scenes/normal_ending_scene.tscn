@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://bq8r5rjqpwcto"]
+
+[ext_resource type="Script" uid="uid://cnlqxxardynp6" path="res://scripts/johann/root_scene/normal_ending_scene.gd" id="1_7ljwq"]
+[ext_resource type="Texture2D" uid="uid://ck1d7oyr4f8ai" path="res://images/cutscenes/normal_ending/1.png" id="2_7ljwq"]
+[ext_resource type="PackedScene" uid="uid://bqmmq0q8u4pk" path="res://scenes/prefabs/johann/ui/generic/j_texture_button.tscn" id="2_8xug5"]
+[ext_resource type="Texture2D" uid="uid://dbki2kqe3wuai" path="res://images/ui/cutscene/wallpaper.JPG" id="2_wg0fc"]
+[ext_resource type="Texture2D" uid="uid://y0emwyti25m7" path="res://images/ui/cutscene/right.png" id="4_w0yg6"]
+
+[node name="NormalEndingScene" type="Node" unique_id=822257853]
+script = ExtResource("1_7ljwq")
+
+[node name="Background" type="TextureRect" parent="." unique_id=461461344]
+self_modulate = Color(0.48178947, 0.48178947, 0.48178947, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wg0fc")
+
+[node name="Slides" type="HBoxContainer" parent="Background" unique_id=2053574506]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Previous_Control" type="Control" parent="Background/Slides" unique_id=63304109]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PreviousButton" parent="Background/Slides/Previous_Control" unique_id=596877703 instance=ExtResource("2_8xug5")]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_w0yg6")
+flip_h = true
+flip_v = true
+
+[node name="Slides" type="MarginContainer" parent="Background/Slides" unique_id=293496964]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="0" type="TextureRect" parent="Background/Slides/Slides" unique_id=1497859385]
+layout_mode = 2
+texture = ExtResource("2_7ljwq")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Next_Control" type="Control" parent="Background/Slides" unique_id=1678032067]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NextButton" parent="Background/Slides/Next_Control" unique_id=911783596 instance=ExtResource("2_8xug5")]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_w0yg6")
+
+[connection signal="pressed" from="Background/Slides/Previous_Control/PreviousButton" to="." method="_on_previous_button_pressed"]
+[connection signal="pressed" from="Background/Slides/Next_Control/NextButton" to="." method="_on_next_button_pressed"]

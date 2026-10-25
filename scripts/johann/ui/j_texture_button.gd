@@ -12,7 +12,22 @@ var _texture: Texture2D
 		if is_node_ready():
 			$GFX/Texture.texture = value
 		_texture = value
-			
+
+
+@export var flip_h: bool = false:
+	get:
+		return $GFX/Texture.flip_h
+	set(value):
+		$GFX/Texture.flip_h = value
+
+
+@export var flip_v: bool = false:
+	get:
+		return $GFX/Texture.flip_h
+	set(value):
+		$GFX/Texture.flip_h = value
+
+
 func _ready() -> void:
 	$GFX/Texture.texture = _texture
 	

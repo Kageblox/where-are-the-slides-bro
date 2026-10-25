@@ -1,7 +1,13 @@
 extends Node
 
-var old_scene: Root_Scene = null
-var current_scene: Root_Scene = null
+## Scenes
+var main_menu_scene_path = "res://scenes/root_scenes/main_menu_scene.tscn"
+var gameplay_scene_path = "res://scenes/root_scenes/gameplay_scene.tscn"
+var normal_ending_scene_path = "res://scenes/root_scenes/normal_ending_scene.tscn" 
+
+
+var old_scene: RootScene = null
+var current_scene: RootScene = null
 
 var loading_screen_opening = false
 var loading_screen_closing = false
@@ -13,8 +19,8 @@ var loading_popup: JPopup = null
 
 func _ready():
 	var root = get_tree().get_root()
-	current_scene = root.get_child( root.get_child_count() -1 ) as Root_Scene
-	$PauseButton_Pausable/PauseButton.visible = current_scene.pausable
+	current_scene = root.get_child( root.get_child_count() -1 ) as RootScene
+	$Pause/PauseButton.visible = current_scene.pausable
 	
 func goto_scene(path):
 	PopupManager.close_all_popups()
@@ -40,7 +46,7 @@ func _process(delta: float) -> void:
 				var new_scene = ResourceLoader.load_threaded_get(loading_path)
 				loading_path = null
 				old_scene = current_scene 
-				current_scene = new_scene.instantiate() as Root_Scene
+				current_scene = new_scene.instantiate() as RootScene
 				
 	if loading_popup and loading_path == null and not loading_screen_opening:
 		get_tree().root.add_child(current_scene)
@@ -49,7 +55,7 @@ func _process(delta: float) -> void:
 		old_scene.queue_free()
 		loading_popup.close()
 		loading_popup = null
-		$PauseButton_Pausable/PauseButton.visible = current_scene.pausable
+		$Pause/PauseButton.visible = current_scene.pausable
 
 func _on_pause_button_pressed() -> void:
 	PopupManager.open_popup(PopupManager.paused_popup)

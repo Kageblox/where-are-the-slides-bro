@@ -16,7 +16,7 @@ func _on_return_to_main_menu_pressed() -> void:
 				"No"
 			],
 			[
-				func(): SceneManager.goto_scene("res://scenes/root_scenes/main_menu_scene.tscn"), 
+				func(): SceneManager.goto_scene(SceneManager.main_menu_scene_path), 
 				func(): pass
 			]
 		])

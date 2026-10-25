@@ -17,8 +17,8 @@ metadata/_custom_type_script = "uid://pyu6w1fyxk53"
 [sub_resource type="Resource" id="Resource_p2yjp"]
 script = ExtResource("2_3sqdf")
 property = "modulate"
-initial_val = Color(1.353256, 1.353256, 1.353256, 1)
-final_val = Color(1, 1, 1, 1)
+initial_val = Color(1, 1, 1, 1)
+final_val = Color(1.353256, 1.353256, 1.353256, 1)
 ignore_time_scale = true
 transition = 1
 ease = 1

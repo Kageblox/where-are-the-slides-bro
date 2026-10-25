@@ -1,4 +1,4 @@
-class_name GameplayScene extends Root_Scene
+class_name GameplayScene extends RootScene
 
 func _ready() -> void:
 	PopupManager.open_popup(PopupManager.powerpoint_window)

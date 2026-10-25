@@ -1,0 +1,1 @@
+class_name NormalEndingScene extends CutsceneScene
