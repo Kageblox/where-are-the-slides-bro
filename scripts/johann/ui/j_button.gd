@@ -1,7 +1,7 @@
 @tool
 class_name JButton extends Control
 
-signal pressed()
+signal pressed(args)
 
 @export var disabled: bool = false:
 	get:
@@ -13,6 +13,8 @@ signal pressed()
 			if is_node_ready():
 				JTween.StartTween($GFX, default_tweens)
 		disabled = value
+
+@export var pressed_args: Variant
 
 @export_category("GFX")
 @export var default_tweens: JTweenCollection
@@ -36,7 +38,7 @@ func _enter_tree() -> void:
 			if event is InputEventMouseButton:
 				if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and not disabled:
 					JTween.StartTween($GFX, pressed_tweens)
-					pressed.emit()
+					pressed.emit(pressed_args)
 					accept_event())
 		
 		popup = JBasicUtil.get_nearest_parent_of_class(self, JPopup)

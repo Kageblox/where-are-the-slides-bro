@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 PopupManager="*uid://b77j0r1fsnx5r"
 SceneManager="*uid://hdabr2qqtb2j"
+TimeManager="*uid://bjro0gam6l62v"
 
 [display]
 

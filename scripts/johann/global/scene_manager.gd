@@ -57,5 +57,5 @@ func _process(delta: float) -> void:
 		loading_popup = null
 		$Pause/PauseButton.visible = current_scene.pausable
 
-func _on_pause_button_pressed() -> void:
+func _on_pause_button_pressed(args) -> void:
 	PopupManager.open_popup(PopupManager.paused_popup)

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bjro0gam6l62v"]
+
+[ext_resource type="Script" uid="uid://bxwbe1wti4tev" path="res://scripts/johann/global/time_manager.gd" id="1_amlyu"]
+
+[node name="TimeManager" type="Timer" unique_id=1424604615]
+wait_time = 150.0
+script = ExtResource("1_amlyu")
+
+[connection signal="timeout" from="." to="." method="_on_timeout"]

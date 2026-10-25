@@ -11,7 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://bqmmq0q8u4pk" path="res://scenes/prefabs/johann/ui/generic/j_texture_button.tscn" id="9_1iqt4"]
 [ext_resource type="Texture2D" uid="uid://dkncexn3vhqbk" path="res://images/ui/jialing/CalmFace-Sheet.png" id="9_3ufu7"]
 [ext_resource type="Texture2D" uid="uid://b2gykvmxddl87" path="res://images/ui/jialing/StressFace-Sheet.png" id="10_1iqt4"]
+[ext_resource type="Script" uid="uid://csu5yj43mij4v" path="res://scripts/rishi/slide_area.gd" id="10_h3wdy"]
+[ext_resource type="Texture2D" uid="uid://xblgi23gpvex" path="res://images/ui/powerpoint/Trashbin.png" id="10_j04sd"]
 [ext_resource type="Texture2D" uid="uid://dl3xwad6o6x05" path="res://images/ui/jialing/TraumaFace-Sheet.png" id="11_h3wdy"]
+[ext_resource type="FontFile" uid="uid://d1t0i8dupfklb" path="res://resources/fonts/aseprite.otf" id="15_h6blu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j04sd"]
 atlas = ExtResource("9_3ufu7")
@@ -135,6 +138,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("4_xetk8")
 open_tweens = ExtResource("5_hkk60")
 close_tweens = ExtResource("6_eid80")
@@ -155,116 +159,153 @@ patch_margin_bottom = 4
 
 [node name="Margins" type="MarginContainer" parent="PanelContainer" unique_id=300706096]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 28
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Margins" unique_id=523995451]
+[node name="HBox" type="HBoxContainer" parent="PanelContainer/Margins" unique_id=523995451]
 layout_mode = 2
+mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Margins/HBoxContainer" unique_id=1192771245]
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/Margins/HBox" unique_id=1192771245]
 layout_mode = 2
 alignment = 2
 
-[node name="OpenSelectTheCorrectImageWindowButton" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer" unique_id=596877703 instance=ExtResource("8_eid80")]
+[node name="OpenSelectTheCorrectImageWindowButton" parent="PanelContainer/Margins/HBox/VBox" unique_id=596877703 instance=ExtResource("8_eid80")]
 visible = false
 layout_mode = 2
 text = "Open Select The Image Window"
 
-[node name="NormalEndingButton" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer" unique_id=661877221 instance=ExtResource("8_eid80")]
+[node name="NormalEndingButton" parent="PanelContainer/Margins/HBox/VBox" unique_id=661877221 instance=ExtResource("8_eid80")]
 visible = false
 layout_mode = 2
 text = "Normal Ending"
 
-[node name="Margins" type="MarginContainer" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer" unique_id=1185184921]
+[node name="VBox" type="VBoxContainer" parent="PanelContainer/Margins/HBox/VBox" unique_id=246449219]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 40
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
 
-[node name="Scroll" type="ScrollContainer" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer/Margins" unique_id=111192847]
+[node name="Margins" type="MarginContainer" parent="PanelContainer/Margins/HBox/VBox/VBox" unique_id=455098121]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/Margins/HBox/VBox/VBox/Margins" unique_id=1353545117]
+layout_mode = 2
+
+[node name="ToolbarBackground" type="ColorRect" parent="PanelContainer/Margins/HBox/VBox/VBox/Margins/PanelContainer" unique_id=397010410]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Margins" type="MarginContainer" parent="PanelContainer/Margins/HBox/VBox/VBox/Margins/PanelContainer" unique_id=1690581664]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Toolbar" type="HBoxContainer" parent="PanelContainer/Margins/HBox/VBox/VBox/Margins/PanelContainer/Margins" unique_id=1824906045]
+layout_mode = 2
+alignment = 2
+
+[node name="DeleteButton" parent="PanelContainer/Margins/HBox/VBox/VBox/Margins/PanelContainer/Margins/Toolbar" unique_id=1370562635 instance=ExtResource("9_1iqt4")]
+texture_filter = 1
+custom_minimum_size = Vector2(25, 25)
+custom_maximum_size = Vector2(25, 25)
+layout_mode = 2
+texture = ExtResource("10_j04sd")
+
+[node name="Scroll" type="ScrollContainer" parent="PanelContainer/Margins/HBox/VBox/VBox" unique_id=111192847]
 custom_minimum_size = Vector2(185, 0)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Margins" type="MarginContainer" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer/Margins/Scroll" unique_id=2133339943]
+[node name="Margins" type="MarginContainer" parent="PanelContainer/Margins/HBox/VBox/VBox/Scroll" unique_id=2133339943]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer/Margins/Scroll/Margins" unique_id=662492040]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Margins/HBox/VBox/VBox/Scroll/Margins" unique_id=662492040]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SlideElement1" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer/Margins/Scroll/Margins/VBoxContainer" unique_id=1056967913 instance=ExtResource("9_1iqt4")]
+[node name="SlideElement0" parent="PanelContainer/Margins/HBox/VBox/VBox/Scroll/Margins/VBoxContainer" unique_id=1056967913 instance=ExtResource("9_1iqt4")]
 custom_minimum_size = Vector2(150, 150)
 custom_maximum_size = Vector2(150, 150)
 layout_mode = 2
+pressed_args = 0
 
-[node name="SlideElement2" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer/Margins/Scroll/Margins/VBoxContainer" unique_id=606643699 instance=ExtResource("9_1iqt4")]
+[node name="SlideElement1" parent="PanelContainer/Margins/HBox/VBox/VBox/Scroll/Margins/VBoxContainer" unique_id=606643699 instance=ExtResource("9_1iqt4")]
 custom_minimum_size = Vector2(150, 150)
 custom_maximum_size = Vector2(150, 150)
 layout_mode = 2
+pressed_args = 1
 
-[node name="SlideElement3" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer/Margins/Scroll/Margins/VBoxContainer" unique_id=1514643722 instance=ExtResource("9_1iqt4")]
+[node name="SlideElement2" parent="PanelContainer/Margins/HBox/VBox/VBox/Scroll/Margins/VBoxContainer" unique_id=1514643722 instance=ExtResource("9_1iqt4")]
 custom_minimum_size = Vector2(150, 150)
 custom_maximum_size = Vector2(150, 150)
 layout_mode = 2
+pressed_args = 2
 
-[node name="SlideElement4" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer/Margins/Scroll/Margins/VBoxContainer" unique_id=532169326 instance=ExtResource("9_1iqt4")]
+[node name="SlideElement3" parent="PanelContainer/Margins/HBox/VBox/VBox/Scroll/Margins/VBoxContainer" unique_id=532169326 instance=ExtResource("9_1iqt4")]
 custom_minimum_size = Vector2(150, 150)
 custom_maximum_size = Vector2(150, 150)
 layout_mode = 2
+pressed_args = 3
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/Margins/HBoxContainer" unique_id=891327416]
+[node name="Margins" type="MarginContainer" parent="PanelContainer/Margins/HBox" unique_id=1222147535]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 0
 
-[node name="SlideEditor" type="Control" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer2" unique_id=241975847]
+[node name="SlideArea" type="Control" parent="PanelContainer/Margins/HBox/Margins" unique_id=1569410038]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("10_h3wdy")
 
-[node name="SpawnPoint" type="Control" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer2/SlideEditor" unique_id=743688536]
+[node name="ColorRect" type="ColorRect" parent="PanelContainer/Margins/HBox/Margins/SlideArea" unique_id=896478009]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/Margins/HBoxContainer" unique_id=2094463807]
+[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/Margins/HBox" unique_id=2094463807]
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer3" unique_id=1361814670]
+[node name="Viewport" type="PanelContainer" parent="PanelContainer/Margins/HBox/VBoxContainer3" unique_id=1361814670]
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer3/PanelContainer" unique_id=527822444]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer3/PanelContainer" unique_id=2017912977]
+[node name="ColorRect" type="ColorRect" parent="PanelContainer/Margins/HBox/VBoxContainer3/Viewport" unique_id=527822444]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SubViewport" type="SubViewport" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer3/PanelContainer/SubViewportContainer" unique_id=457021034]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="PanelContainer/Margins/HBox/VBoxContainer3/Viewport" unique_id=2017912977]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SubViewport" type="SubViewport" parent="PanelContainer/Margins/HBox/VBoxContainer3/Viewport/SubViewportContainer" unique_id=457021034]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(128, 128)
 render_target_update_mode = 4
 
-[node name="JiaLing" type="AnimatedSprite2D" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer3/PanelContainer/SubViewportContainer/SubViewport" unique_id=21652918]
+[node name="JiaLing" type="AnimatedSprite2D" parent="PanelContainer/Margins/HBox/VBoxContainer3/Viewport/SubViewportContainer/SubViewport" unique_id=21652918]
 texture_filter = 1
 position = Vector2(64, 64)
 scale = Vector2(2.75, 2.75)
@@ -272,5 +313,46 @@ sprite_frames = SubResource("SpriteFrames_p52qu")
 animation = &"calm"
 frame_progress = 0.25917357
 
-[connection signal="pressed" from="PanelContainer/Margins/HBoxContainer/VBoxContainer/OpenSelectTheCorrectImageWindowButton" to="." method="_on_open_select_the_correct_image_window_button_pressed"]
-[connection signal="pressed" from="PanelContainer/Margins/HBoxContainer/VBoxContainer/NormalEndingButton" to="." method="_on_normal_ending_button_pressed"]
+[node name="Counter" type="PanelContainer" parent="PanelContainer/Margins/HBox/VBoxContainer3" unique_id=531046722]
+layout_mode = 2
+
+[node name="CounterBackground" type="ColorRect" parent="PanelContainer/Margins/HBox/VBoxContainer3/Counter" unique_id=902720002]
+layout_mode = 2
+color = Color(0.24383354, 0.31724572, 0.37628058, 1)
+
+[node name="Margins" type="MarginContainer" parent="PanelContainer/Margins/HBox/VBoxContainer3/Counter" unique_id=1422266895]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Counter_Text" type="Label" parent="PanelContainer/Margins/HBox/VBoxContainer3/Counter/Margins" unique_id=939553458]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_h6blu")
+theme_override_font_sizes/font_size = 21
+text = "12:34"
+horizontal_alignment = 1
+
+[node name="ReduceTimeButton" parent="PanelContainer/Margins/HBox/VBoxContainer3" unique_id=1744035035 instance=ExtResource("8_eid80")]
+layout_mode = 2
+text = "Reduce Time"
+
+[node name="Empty" type="PanelContainer" parent="PanelContainer/Margins/HBox/VBoxContainer3" unique_id=1610775852]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SubmitSlideButton" parent="PanelContainer/Margins/HBox/VBoxContainer3" unique_id=627913303 instance=ExtResource("8_eid80")]
+layout_mode = 2
+text = "Submit Slide"
+
+[connection signal="pressed" from="PanelContainer/Margins/HBox/VBox/OpenSelectTheCorrectImageWindowButton" to="." method="_on_open_select_the_correct_image_window_button_pressed"]
+[connection signal="pressed" from="PanelContainer/Margins/HBox/VBox/NormalEndingButton" to="." method="_on_normal_ending_button_pressed"]
+[connection signal="pressed" from="PanelContainer/Margins/HBox/VBox/VBox/Margins/PanelContainer/Margins/Toolbar/DeleteButton" to="PanelContainer/Margins/HBox/Margins/SlideArea" method="_on_delete_button_pressed"]
+[connection signal="pressed" from="PanelContainer/Margins/HBox/VBox/VBox/Scroll/Margins/VBoxContainer/SlideElement0" to="." method="_on_slide_element_pressed"]
+[connection signal="pressed" from="PanelContainer/Margins/HBox/VBox/VBox/Scroll/Margins/VBoxContainer/SlideElement1" to="." method="_on_slide_element_pressed"]
+[connection signal="pressed" from="PanelContainer/Margins/HBox/VBox/VBox/Scroll/Margins/VBoxContainer/SlideElement2" to="." method="_on_slide_element_pressed"]
+[connection signal="pressed" from="PanelContainer/Margins/HBox/VBox/VBox/Scroll/Margins/VBoxContainer/SlideElement3" to="." method="_on_slide_element_pressed"]
+[connection signal="gui_input" from="PanelContainer/Margins/HBox/Margins/SlideArea" to="PanelContainer/Margins/HBox/Margins/SlideArea" method="_on_gui_input"]
+[connection signal="pressed" from="PanelContainer/Margins/HBox/VBoxContainer3/ReduceTimeButton" to="." method="_on_reduce_time_button_pressed"]

@@ -26,8 +26,8 @@ func open(
 	for i in range(len(callbacks)):
 		var current_answer = answer_buttons[i]
 		current_answer.pressed.connect(callbacks[i])
-		current_answer.pressed.connect(func():
+		current_answer.pressed.connect(func(args):
 			close())
 
-func _on_background_pressed() -> void:
+func _on_background_pressed(args) -> void:
 	close()

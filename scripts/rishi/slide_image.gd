@@ -57,7 +57,7 @@ func _draw() -> void:
 
 func draw_handle_square(centre: Vector2) -> void:
 	var top_left_of_square := centre - Vector2(HANDLE_SIZE, HANDLE_SIZE) / 2
-	draw_rect(Rect2(top_left_of_square, Vector2(HANDLE_SIZE, HANDLE_SIZE)), Color.WHITE)
+	draw_rect(Rect2(top_left_of_square, Vector2(HANDLE_SIZE, HANDLE_SIZE)), YELLOW)
 
 
 func top_left() -> Vector2:
