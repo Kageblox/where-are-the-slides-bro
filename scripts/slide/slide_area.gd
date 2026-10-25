@@ -5,17 +5,16 @@ const IMAGE_SIZE := Vector2(128, 128)
 
 
 func _ready() -> void:
-	clip_contents = true   # anything poking outside the white slide is hidden
+	clip_contents = true   
 
 
-## The popup calls this (see gameplay_scene.gd) with the picture the player chose.
 func insert_image(texture: Texture2D) -> void:
-	var img := SlideImage.new()                  # make a new picture
-	img.texture = texture                        # give it the chosen texture
-	img.size = IMAGE_SIZE                        # starting size
-	img.position = (size - IMAGE_SIZE) / 2       # top-left that puts it in the middle of the slide
-	add_child(img)                               # put it on the slide (this runs its _ready)
-	img.select()                                 # show its handles straight away
+	var img := SlideImage.new()                 
+	img.texture = texture                        
+	img.size = IMAGE_SIZE                        
+	img.position = (size - IMAGE_SIZE) / 2       
+	add_child(img)                              
+	img.select()                                 
 
 
 func _gui_input(event: InputEvent) -> void:
