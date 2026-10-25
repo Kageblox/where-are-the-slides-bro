@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://o224c1fochs"]
+
+[ext_resource type="Script" uid="uid://caspt2ehmqbay" path="res://scripts/johann/ui/popups/game/window_popup.gd" id="1_lotkk"]
+[ext_resource type="Resource" uid="uid://d1h58hgb5cwdo" path="res://resources/tweens/window_frame/window_frame_focus.tres" id="2_1n2wj"]
+[ext_resource type="Script" uid="uid://k14me5tuweew" path="res://scripts/johann/ui/j_popup_element.gd" id="2_y4ow8"]
+[ext_resource type="Resource" uid="uid://dc0e355mwyhd5" path="res://resources/tweens/center_medium/center_medium_open.tres" id="3_4cf26"]
+[ext_resource type="Resource" uid="uid://5lx2l0xdi5xg" path="res://resources/tweens/window_frame/window_frame_unfocus.tres" id="3_gjobq"]
+[ext_resource type="Resource" uid="uid://wfsaxeh518gk" path="res://resources/tweens/center_medium/center_medium_close.tres" id="4_8uksb"]
+[ext_resource type="Texture2D" uid="uid://c8c2rri8c26ku" path="res://images/ui/window/window_frame.png" id="5_lotkk"]
+
+[node name="WindowPopup" type="Control" unique_id=947669594]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_lotkk")
+window_frame_focus = ExtResource("2_1n2wj")
+window_frame_unfocus = ExtResource("3_gjobq")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=915664027]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.375
+anchor_top = 0.375
+anchor_right = 0.625
+anchor_bottom = 0.625
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_y4ow8")
+open_tweens = ExtResource("3_4cf26")
+close_tweens = ExtResource("4_8uksb")
+
+[node name="WindowBackground" type="ColorRect" parent="PanelContainer" unique_id=1232122458]
+layout_mode = 2
+color = Color(0.78039217, 0.8117647, 0.8666667, 1)
+
+[node name="WindowFrame" type="NinePatchRect" parent="PanelContainer" unique_id=290626031]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("5_lotkk")
+region_rect = Rect2(0, 0, 126, 126)
+patch_margin_left = 4
+patch_margin_top = 20
+patch_margin_right = 67
+patch_margin_bottom = 4
+
+[node name="Margins" type="MarginContainer" parent="PanelContainer" unique_id=300706096]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12

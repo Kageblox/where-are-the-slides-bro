@@ -1,10 +1,13 @@
-class_name QuestionPopup extends JPopup
+class_name SystemQuestionPopup extends JPopup
 
-func load_question(
-	question: String,
-	answers,
-	callbacks
-):
+func open(
+	args = null
+	) -> void:
+	super()
+	var question = args[0]
+	var answers = args[1]
+	var callbacks = args[2]
+	
 	$Panel/VBoxContainer/Margins/Question.text = question
 	
 	var answer0 = $Panel/VBoxContainer/VBoxContainer/OptionButton as JLabelButton

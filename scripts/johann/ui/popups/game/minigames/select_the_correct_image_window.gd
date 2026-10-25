@@ -1,4 +1,4 @@
-class_name SelectTheCorrectImagePopup extends JPopup
+class_name SelectTheCorrectImageWindow extends WindowPopup
 
 
 func _on_option_1_pressed() -> void:

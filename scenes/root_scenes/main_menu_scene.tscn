@@ -1,60 +1,72 @@
 [gd_scene format=3 uid="uid://8d2e824hyyb4"]
 
-[ext_resource type="Script" uid="uid://btl1b5as5qb6g" path="res://scripts/johann/root_scene/main_menu.gd" id="1_c7lld"]
+[ext_resource type="Script" uid="uid://btl1b5as5qb6g" path="res://scripts/johann/root_scene/main_menu_scene.gd" id="1_c7lld"]
 [ext_resource type="PackedScene" uid="uid://cnkysvjhscm" path="res://scenes/prefabs/johann/ui/generic/j_label_button.tscn" id="1_oet81"]
 [ext_resource type="Texture2D" uid="uid://bjs13jseyqlq5" path="res://images/ui/main_menu/TITLE SCREEN PICTURE.png" id="2_c7lld"]
-[ext_resource type="Texture2D" uid="uid://dx1xnf3lb2m7d" path="res://images/ui/window/basic_window.png" id="4_q7aqv"]
+[ext_resource type="FontFile" uid="uid://d1t0i8dupfklb" path="res://resources/fonts/aseprite.otf" id="4_q7aqv"]
 
 [node name="MainMenuScene" type="Node" unique_id=822257853]
 script = ExtResource("1_c7lld")
 pausable = false
 
-[node name="Control" type="Control" parent="." unique_id=156161287]
-layout_mode = 3
+[node name="Background" type="ColorRect" parent="." unique_id=1457186827]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.12591085, 0.12591085, 0.12591082, 1)
 
-[node name="Background" type="TextureRect" parent="Control" unique_id=2055056655]
+[node name="HBoxContainer" type="HBoxContainer" parent="Background" unique_id=1468940572]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Background/HBoxContainer" unique_id=2055056655]
+layout_mode = 2
 texture = ExtResource("2_c7lld")
 
-[node name="SettingsButton" parent="Control" unique_id=596877703 instance=ExtResource("1_oet81")]
-layout_mode = 0
-offset_left = 557.0
-offset_top = 253.0
-offset_right = 642.0
-offset_bottom = 284.0
-text = "Settings"
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/HBoxContainer" unique_id=88997354]
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="StartGameButton" parent="Control" unique_id=1201679177 instance=ExtResource("1_oet81")]
-layout_mode = 0
-offset_left = 526.0
-offset_top = 209.0
-offset_right = 641.0
-offset_bottom = 240.0
+[node name="Margins" type="MarginContainer" parent="Background/HBoxContainer/VBoxContainer" unique_id=1097616893]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/HBoxContainer/VBoxContainer/Margins" unique_id=884813483]
+layout_mode = 2
+
+[node name="WhereAreTheSlidesBro" type="Label" parent="Background/HBoxContainer/VBoxContainer/Margins/VBoxContainer" unique_id=502655810]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_q7aqv")
+theme_override_font_sizes/font_size = 70
+text = "where are the slides bro?"
+autowrap_mode = 2
+
+[node name="StartGameButton" parent="Background/HBoxContainer/VBoxContainer" unique_id=1201679177 instance=ExtResource("1_oet81")]
+layout_mode = 2
 text = "Start Game"
+font_size = 36
+margins = 16
 
-[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=492914219]
-texture_filter = 1
-offset_left = 140.00005
-offset_top = 268.0
-offset_right = 196.57149
-offset_bottom = 320.5714
-scale = Vector2(3.5, 3.5)
-texture = ExtResource("4_q7aqv")
-region_rect = Rect2(0, 0, 100, 70)
-patch_margin_left = 1
-patch_margin_top = 5
-patch_margin_right = 16
-patch_margin_bottom = 1
+[node name="SettingsButton" parent="Background/HBoxContainer/VBoxContainer" unique_id=596877703 instance=ExtResource("1_oet81")]
+layout_mode = 2
+text = "Settings"
+font_size = 36
+margins = 16
 
-[connection signal="pressed" from="Control/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="Control/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[node name="CreditsButton" parent="Background/HBoxContainer/VBoxContainer" unique_id=18135434 instance=ExtResource("1_oet81")]
+layout_mode = 2
+text = "Credits"
+font_size = 36
+margins = 16
+
+[connection signal="pressed" from="Background/HBoxContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="Background/HBoxContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]

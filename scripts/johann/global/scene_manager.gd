@@ -14,7 +14,7 @@ var loading_popup: JPopup = null
 func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child( root.get_child_count() -1 ) as Root_Scene
-	$PauseButton/PauseButton.visible = current_scene.pausable
+	$PauseButton_Pausable/PauseButton.visible = current_scene.pausable
 	
 func goto_scene(path):
 	PopupManager.close_all_popups()
@@ -49,7 +49,7 @@ func _process(delta: float) -> void:
 		old_scene.queue_free()
 		loading_popup.close()
 		loading_popup = null
-		$PauseButton/PauseButton.visible = current_scene.pausable
+		$PauseButton_Pausable/PauseButton.visible = current_scene.pausable
 
 func _on_pause_button_pressed() -> void:
 	PopupManager.open_popup(PopupManager.paused_popup)

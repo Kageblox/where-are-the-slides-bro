@@ -1,21 +1,26 @@
 [gd_scene format=3 uid="uid://crqefaofc4swo"]
 
-[ext_resource type="Script" uid="uid://ctyqjgjjq8mgj" path="res://scripts/johann/ui/popups/minigames/select_the_correct_image_popup.gd" id="1_0slbb"]
-[ext_resource type="Script" uid="uid://k14me5tuweew" path="res://scripts/johann/ui/j_popup_element.gd" id="2_344xk"]
-[ext_resource type="Resource" uid="uid://wfsaxeh518gk" path="res://resources/tweens/center/center_close.tres" id="3_344xk"]
-[ext_resource type="Resource" uid="uid://dc0e355mwyhd5" path="res://resources/tweens/center/center_open.tres" id="3_tyy1k"]
-[ext_resource type="Texture2D" uid="uid://dx1xnf3lb2m7d" path="res://images/ui/window/basic_window.png" id="4_gbc85"]
-[ext_resource type="FontFile" uid="uid://d1t0i8dupfklb" path="res://resources/fonts/aseprite.otf" id="5_6x2um"]
-[ext_resource type="PackedScene" uid="uid://bqmmq0q8u4pk" path="res://scenes/prefabs/johann/ui/generic/j_texture_button.tscn" id="6_agsbs"]
+[ext_resource type="Script" uid="uid://ctyqjgjjq8mgj" path="res://scripts/johann/ui/popups/game/minigames/select_the_correct_image_window.gd" id="1_y8enc"]
+[ext_resource type="Script" uid="uid://k14me5tuweew" path="res://scripts/johann/ui/j_popup_element.gd" id="2_vdriy"]
+[ext_resource type="Resource" uid="uid://d1h58hgb5cwdo" path="res://resources/tweens/window_frame/window_frame_focus.tres" id="2_y8enc"]
+[ext_resource type="Resource" uid="uid://5lx2l0xdi5xg" path="res://resources/tweens/window_frame/window_frame_unfocus.tres" id="3_lldfc"]
+[ext_resource type="Resource" uid="uid://dc0e355mwyhd5" path="res://resources/tweens/center_medium/center_medium_open.tres" id="3_y8enc"]
+[ext_resource type="Resource" uid="uid://wfsaxeh518gk" path="res://resources/tweens/center_medium/center_medium_close.tres" id="4_lldfc"]
+[ext_resource type="FontFile" uid="uid://d1t0i8dupfklb" path="res://resources/fonts/aseprite.otf" id="6_7qxxp"]
+[ext_resource type="Texture2D" uid="uid://c8c2rri8c26ku" path="res://images/ui/window/window_frame.png" id="7_3gvpn"]
+[ext_resource type="PackedScene" uid="uid://bqmmq0q8u4pk" path="res://scenes/prefabs/johann/ui/generic/j_texture_button.tscn" id="7_a0j7s"]
 
-[node name="SelectTheCorrectImagePopup" type="Control" unique_id=947669594]
+[node name="SelectTheCorrectImageWindow" type="Control" unique_id=947669594]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_0slbb")
+mouse_filter = 2
+script = ExtResource("1_y8enc")
+window_frame_focus = ExtResource("2_y8enc")
+window_frame_unfocus = ExtResource("3_lldfc")
 open_duration = 0.25
 close_duration = 0.25
 
@@ -29,18 +34,22 @@ anchor_right = 0.75
 anchor_bottom = 0.75
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_344xk")
-open_tweens = ExtResource("3_tyy1k")
-close_tweens = ExtResource("3_344xk")
+script = ExtResource("2_vdriy")
+open_tweens = ExtResource("3_y8enc")
+close_tweens = ExtResource("4_lldfc")
 
-[node name="Background" type="NinePatchRect" parent="PanelContainer" unique_id=290626031]
+[node name="WindowBackground" type="ColorRect" parent="PanelContainer" unique_id=924064038]
+layout_mode = 2
+color = Color(0.78039217, 0.8117647, 0.8666667, 1)
+
+[node name="WindowFrame" type="NinePatchRect" parent="PanelContainer" unique_id=1627776754]
 texture_filter = 1
 layout_mode = 2
-texture = ExtResource("4_gbc85")
-region_rect = Rect2(0, 0, 400, 280)
+texture = ExtResource("7_3gvpn")
+region_rect = Rect2(0, 0, 126, 126)
 patch_margin_left = 4
 patch_margin_top = 20
-patch_margin_right = 68
+patch_margin_right = 67
 patch_margin_bottom = 4
 
 [node name="Margins" type="MarginContainer" parent="PanelContainer" unique_id=300706096]
@@ -56,7 +65,7 @@ layout_mode = 2
 [node name="PleaseSelectTheImageContaining" type="Label" parent="PanelContainer/Margins/VBoxContainer" unique_id=885564656]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_6x2um")
+theme_override_fonts/font = ExtResource("6_7qxxp")
 text = "Please select the image containing:"
 
 [node name="Margins" type="MarginContainer" parent="PanelContainer/Margins/VBoxContainer" unique_id=504602910]
@@ -69,7 +78,7 @@ theme_override_constants/margin_bottom = 4
 [node name="PleaseSelectTheImageContaining" type="Label" parent="PanelContainer/Margins/VBoxContainer/Margins" unique_id=8352475]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_6x2um")
+theme_override_fonts/font = ExtResource("6_7qxxp")
 theme_override_font_sizes/font_size = 32
 text = "Slides"
 
@@ -77,15 +86,15 @@ text = "Slides"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Option1" parent="PanelContainer/Margins/VBoxContainer/HBoxContainer" unique_id=596877703 instance=ExtResource("6_agsbs")]
+[node name="Option1" parent="PanelContainer/Margins/VBoxContainer/HBoxContainer" unique_id=596877703 instance=ExtResource("7_a0j7s")]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Option2" parent="PanelContainer/Margins/VBoxContainer/HBoxContainer" unique_id=815481485 instance=ExtResource("6_agsbs")]
+[node name="Option2" parent="PanelContainer/Margins/VBoxContainer/HBoxContainer" unique_id=815481485 instance=ExtResource("7_a0j7s")]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Option3" parent="PanelContainer/Margins/VBoxContainer/HBoxContainer" unique_id=1945972643 instance=ExtResource("6_agsbs")]
+[node name="Option3" parent="PanelContainer/Margins/VBoxContainer/HBoxContainer" unique_id=1945972643 instance=ExtResource("7_a0j7s")]
 layout_mode = 2
 size_flags_horizontal = 3
 

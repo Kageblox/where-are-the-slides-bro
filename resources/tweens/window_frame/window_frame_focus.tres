@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="JTweenCollection" format=3 uid="uid://d1h58hgb5cwdo"]
+
+[ext_resource type="Script" uid="uid://di5mdanpnbwx3" path="res://scripts/johann/resource/tween_collection.gd" id="1_rab62"]
+[ext_resource type="Script" uid="uid://pyu6w1fyxk53" path="res://scripts/johann/resource/tween.gd" id="2_1tj5y"]
+
+[sub_resource type="Resource" id="Resource_8touj"]
+script = ExtResource("2_1tj5y")
+property = "self_modulate"
+initial_val = null
+final_val = Color(1, 1, 1, 1)
+duration = 0.25
+metadata/_custom_type_script = "uid://pyu6w1fyxk53"
+
+[resource]
+script = ExtResource("1_rab62")
+tween_collection = Array[ExtResource("2_1tj5y")]([SubResource("Resource_8touj")])
+metadata/_custom_type_script = "uid://di5mdanpnbwx3"

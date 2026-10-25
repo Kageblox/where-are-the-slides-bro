@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://cdf2it00rxtqg"]
+
+[ext_resource type="Script" uid="uid://0ptr7gscjmy5" path="res://scripts/johann/ui/popups/loading/loading_popup.gd" id="1_2ipyp"]
+[ext_resource type="Script" uid="uid://k14me5tuweew" path="res://scripts/johann/ui/j_popup_element.gd" id="2_nmk30"]
+[ext_resource type="Resource" uid="uid://dge3wv5cqgbmm" path="res://resources/tweens/fullscreen_slide/fullscreen_slide_right_to_center.tres" id="3_a6klx"]
+[ext_resource type="Resource" uid="uid://c07e4axeeams7" path="res://resources/tweens/fullscreen_slide/fullscreen_slide_center_to_left.tres" id="4_wrs8o"]
+[ext_resource type="Texture2D" uid="uid://dftbmmn50o8nd" path="res://images/ui/loading_screens/dinner is ready.png" id="5_wrs8o"]
+[ext_resource type="Texture2D" uid="uid://dtalthi7p4qe2" path="res://images/ui/loading_screens/no sleep.png" id="6_bg7op"]
+[ext_resource type="Texture2D" uid="uid://b3pj8e5502deb" path="res://images/ui/loading_screens/yappertron.png" id="7_66yha"]
+[ext_resource type="FontFile" uid="uid://d1t0i8dupfklb" path="res://resources/fonts/aseprite.otf" id="8_66yha"]
+
+[node name="LoadingPopup" type="Control" unique_id=1678872534 node_paths=PackedStringArray("loading_screens")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ipyp")
+loading_screens = [NodePath("Background/HBoxContainer/Margins/LoadingScreen1"), NodePath("Background/HBoxContainer/Margins/LoadingScreen2"), NodePath("Background/HBoxContainer/Margins/LoadingScreen3")]
+open_duration = 1.25
+popup_type = 2
+
+[node name="Background" type="ColorRect" parent="." unique_id=1332170387]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1254902, 0.1254902, 0.1254902, 1)
+script = ExtResource("2_nmk30")
+open_tweens = ExtResource("3_a6klx")
+close_tweens = ExtResource("4_wrs8o")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background" unique_id=1975937851]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margins" type="MarginContainer" parent="Background/HBoxContainer" unique_id=425957553]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="LoadingScreen1" type="TextureRect" parent="Background/HBoxContainer/Margins" unique_id=1569065869]
+layout_mode = 2
+texture = ExtResource("5_wrs8o")
+expand_mode = 2
+
+[node name="LoadingScreen2" type="TextureRect" parent="Background/HBoxContainer/Margins" unique_id=1812505059]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_bg7op")
+expand_mode = 2
+
+[node name="LoadingScreen3" type="TextureRect" parent="Background/HBoxContainer/Margins" unique_id=1625617062]
+visible = false
+layout_mode = 2
+texture = ExtResource("7_66yha")
+expand_mode = 2
+
+[node name="Loading" type="Label" parent="Background/HBoxContainer" unique_id=2012265362]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_66yha")
+theme_override_font_sizes/font_size = 65
+text = "Loading..."

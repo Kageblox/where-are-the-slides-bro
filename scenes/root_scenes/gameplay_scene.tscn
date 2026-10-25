@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://x3vq4abo27b"]
 
-[ext_resource type="Script" uid="uid://diik6owme6vnw" path="res://scenes/root_scenes/gameplay_scene.gd" id="1_t2wa4"]
+[ext_resource type="Script" uid="uid://diik6owme6vnw" path="res://scripts/johann/root_scene/gameplay_scene.gd" id="1_t2wa4"]
 [ext_resource type="Texture2D" uid="uid://c7dtupre28qct" path="res://icon.svg" id="2_ot868"]
-[ext_resource type="Texture2D" uid="uid://da7fmiulvp63j" path="res://images/PPT.png" id="2_t2wa4"]
+[ext_resource type="Texture2D" uid="uid://dqr1fi0cg0ljw" path="res://images/ui/Desktop_Background.png" id="2_tckjx"]
 [ext_resource type="Script" uid="uid://dic3i1kyon2yi" path="res://scripts/johann/others/spinner.gd" id="3_ac4pu"]
-[ext_resource type="PackedScene" uid="uid://cnkysvjhscm" path="res://scenes/prefabs/johann/ui/generic/j_label_button.tscn" id="4_huliv"]
+[ext_resource type="PackedScene" uid="uid://bqmmq0q8u4pk" path="res://scenes/prefabs/johann/ui/generic/j_texture_button.tscn" id="5_eqbjm"]
+[ext_resource type="Texture2D" uid="uid://dgsja37n5s1hy" path="res://images/PPT_Logo.png" id="6_gufs6"]
 
 [node name="GameplayScene" type="Node" unique_id=1447685937]
 script = ExtResource("1_t2wa4")
@@ -16,7 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_t2wa4")
+texture = ExtResource("2_tckjx")
 expand_mode = 4
 stretch_mode = 5
 
@@ -37,11 +38,12 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("2_ot868")
 script = ExtResource("3_ac4pu")
 
-[node name="SelectTheImageButton" parent="." unique_id=596877703 instance=ExtResource("4_huliv")]
-offset_left = 782.0
-offset_top = 117.0
-offset_right = 954.0
-offset_bottom = 145.0
-text = "Select The Image"
+[node name="PowerpointButton" parent="." unique_id=596877703 instance=ExtResource("5_eqbjm")]
+texture_filter = 1
+offset_left = 881.0
+offset_top = 437.0
+offset_right = 945.0
+offset_bottom = 501.0
+texture = ExtResource("6_gufs6")
 
-[connection signal="pressed" from="SelectTheImageButton" to="." method="_on_spawn_popup_button_pressed"]
+[connection signal="pressed" from="PowerpointButton" to="." method="_on_powerpoint_button_pressed"]

@@ -1,4 +1,4 @@
-class_name MainMenu extends Root_Scene
+class_name MainMenuScene extends Root_Scene
 
 func _on_settings_button_pressed() -> void:
 	PopupManager.open_popup(PopupManager.settings_popup)

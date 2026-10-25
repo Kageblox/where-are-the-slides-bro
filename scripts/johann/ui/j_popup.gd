@@ -1,6 +1,8 @@
 @tool
 class_name JPopup extends Control
 
+enum PopupType { GAME, SYSTEM, LOADING }
+
 signal on_open_start()
 signal on_open_end()
 
@@ -9,7 +11,7 @@ signal on_close_end()
 
 @export var open_duration: float = 0.5
 @export var close_duration: float = 0.5
-@export var pause_game_when_open: bool = false
+@export var popup_type: PopupType = PopupType.GAME
 
 var popup_timer: Timer
 var closing: bool = false
@@ -26,7 +28,9 @@ func _enter_tree() -> void:
 			on_close_end.emit()
 			queue_free())
 
-func open() -> void:
+func open(
+	args = null
+) -> void:
 	interactable = false
 	on_open_start.emit()
 	popup_timer.start(open_duration)

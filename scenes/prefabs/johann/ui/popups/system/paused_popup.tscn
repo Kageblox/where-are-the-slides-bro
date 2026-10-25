@@ -5,9 +5,9 @@
 [ext_resource type="Resource" uid="uid://b2aqwgn1xd2yg" path="res://resources/tweens/modulate/modulate_invisible_to_transparent.tres" id="2_1c620"]
 [ext_resource type="Resource" uid="uid://dpf6veps72er6" path="res://resources/tweens/modulate/modulate_transparent_to_invisible.tres" id="3_u5n1a"]
 [ext_resource type="Script" uid="uid://k14me5tuweew" path="res://scripts/johann/ui/j_popup_element.gd" id="4_36ne0"]
-[ext_resource type="Resource" uid="uid://fel3b4nyuee4" path="res://resources/tweens/narrow/narrow_slide_right_to_center.tres" id="6_1c620"]
+[ext_resource type="Resource" uid="uid://fel3b4nyuee4" path="res://resources/tweens/narrow_slide/narrow_slide_right_to_center.tres" id="6_1c620"]
 [ext_resource type="PackedScene" uid="uid://cnkysvjhscm" path="res://scenes/prefabs/johann/ui/generic/j_label_button.tscn" id="7_85qop"]
-[ext_resource type="Resource" uid="uid://l4onr1xy2eyf" path="res://resources/tweens/narrow/narrow_slide_center_to_left.tres" id="7_u5n1a"]
+[ext_resource type="Resource" uid="uid://l4onr1xy2eyf" path="res://resources/tweens/narrow_slide/narrow_slide_center_to_left.tres" id="7_u5n1a"]
 [ext_resource type="FontFile" uid="uid://d1t0i8dupfklb" path="res://resources/fonts/aseprite.otf" id="8_u5n1a"]
 
 [node name="PausedPopup" type="Control" unique_id=1175046508]
@@ -19,7 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_1c620")
-pause_game_when_open = true
+popup_type = 1
 
 [node name="Background" type="ColorRect" parent="." unique_id=1171877619]
 layout_mode = 1

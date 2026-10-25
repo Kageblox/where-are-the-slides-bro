@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="JTweenCollection" format=3 uid="uid://cacw73ebafyx8"]
+
+[ext_resource type="Script" uid="uid://di5mdanpnbwx3" path="res://scripts/johann/resource/tween_collection.gd" id="1_jl056"]
+[ext_resource type="Script" uid="uid://pyu6w1fyxk53" path="res://scripts/johann/resource/tween.gd" id="2_afe3u"]
+
+[sub_resource type="Resource" id="Resource_eebmk"]
+script = ExtResource("2_afe3u")
+property = "anchor_left"
+initial_val = 0.5
+final_val = 0.0
+transition = 10
+ease = 1
+duration = 0.25
+metadata/_custom_type_script = "uid://pyu6w1fyxk53"
+
+[sub_resource type="Resource" id="Resource_gqo7y"]
+script = ExtResource("2_afe3u")
+property = "anchor_top"
+initial_val = 0.5
+final_val = 0.0
+transition = 10
+ease = 1
+duration = 0.25
+metadata/_custom_type_script = "uid://pyu6w1fyxk53"
+
+[sub_resource type="Resource" id="Resource_8x3c4"]
+script = ExtResource("2_afe3u")
+property = "anchor_right"
+initial_val = 0.5
+final_val = 1.0
+transition = 10
+ease = 1
+duration = 0.25
+metadata/_custom_type_script = "uid://pyu6w1fyxk53"
+
+[sub_resource type="Resource" id="Resource_0yisb"]
+script = ExtResource("2_afe3u")
+property = "anchor_bottom"
+initial_val = 0.5
+final_val = 1.0
+transition = 10
+ease = 1
+duration = 0.25
+metadata/_custom_type_script = "uid://pyu6w1fyxk53"
+
+[resource]
+script = ExtResource("1_jl056")
+tween_collection = Array[ExtResource("2_afe3u")]([SubResource("Resource_eebmk"), SubResource("Resource_gqo7y"), SubResource("Resource_8x3c4"), SubResource("Resource_0yisb")])
+metadata/_custom_type_script = "uid://di5mdanpnbwx3"

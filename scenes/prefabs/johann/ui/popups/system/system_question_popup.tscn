@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://cpyef1hg0ibg0"]
 
-[ext_resource type="Script" uid="uid://ddocy4f2h8iqc" path="res://scripts/johann/ui/popups/system/question_popup.gd" id="1_3c2yo"]
+[ext_resource type="Script" uid="uid://ddocy4f2h8iqc" path="res://scripts/johann/ui/popups/system/system_question_popup.gd" id="1_3c2yo"]
 [ext_resource type="Script" uid="uid://cqh2lc88r7ptt" path="res://scripts/johann/ui/j_popup_pressable.gd" id="2_dtgmc"]
 [ext_resource type="Resource" uid="uid://b2aqwgn1xd2yg" path="res://resources/tweens/modulate/modulate_invisible_to_transparent.tres" id="3_nyur6"]
 [ext_resource type="Resource" uid="uid://dpf6veps72er6" path="res://resources/tweens/modulate/modulate_transparent_to_invisible.tres" id="4_r53tl"]
 [ext_resource type="Script" uid="uid://k14me5tuweew" path="res://scripts/johann/ui/j_popup_element.gd" id="5_46sb8"]
-[ext_resource type="Resource" uid="uid://djh5ysu8ksb75" path="res://resources/tweens/medium/medium_slide_right_to_center.tres" id="6_3c2yo"]
-[ext_resource type="Resource" uid="uid://dftkjqbinbp1h" path="res://resources/tweens/medium/medium_slide_center_to_left.tres" id="7_dtgmc"]
+[ext_resource type="Resource" uid="uid://djh5ysu8ksb75" path="res://resources/tweens/medium_slide/medium_slide_right_to_center.tres" id="6_3c2yo"]
+[ext_resource type="Resource" uid="uid://dftkjqbinbp1h" path="res://resources/tweens/medium_slide/medium_slide_center_to_left.tres" id="7_dtgmc"]
 [ext_resource type="FontFile" uid="uid://d1t0i8dupfklb" path="res://resources/fonts/aseprite.otf" id="8_dtgmc"]
 [ext_resource type="PackedScene" uid="uid://cnkysvjhscm" path="res://scenes/prefabs/johann/ui/generic/j_label_button.tscn" id="8_du10b"]
 
-[node name="QuestionPopup" type="Control" unique_id=1175046508]
+[node name="SystemQuestionPopup" type="Control" unique_id=1175046508]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,7 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_3c2yo")
-pause_game_when_open = true
+popup_type = 1
 
 [node name="Background" type="ColorRect" parent="." unique_id=1171877619]
 layout_mode = 1

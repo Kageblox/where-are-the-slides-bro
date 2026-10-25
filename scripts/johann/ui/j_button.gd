@@ -20,6 +20,8 @@ signal pressed()
 @export var disabled_tweens: JTweenCollection
 @export var pressed_tweens: JTweenCollection
 
+var popup: JPopup
+
 func _enter_tree() -> void:
 	if not Engine.is_editor_hint():
 		self.mouse_entered.connect(func():
@@ -36,3 +38,8 @@ func _enter_tree() -> void:
 					JTween.StartTween($GFX, pressed_tweens)
 					pressed.emit()
 					accept_event())
+		
+		popup = JBasicUtil.get_nearest_parent_of_class(self, JPopup)
+		if popup:
+			popup.on_close_start.connect(func():
+				disabled = true)
