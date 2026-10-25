@@ -1,0 +1,307 @@
+[gd_scene format=3 uid="uid://j4m24f7mqhp"]
+
+[ext_resource type="Script" uid="uid://bemmjxfkhi112" path="res://scripts/johann/ui/popups/game/powerpoint_window.gd" id="1_inov2"]
+[ext_resource type="Resource" uid="uid://d1h58hgb5cwdo" path="res://resources/tweens/window_frame/window_frame_focus.tres" id="2_s5ndf"]
+[ext_resource type="Resource" uid="uid://5lx2l0xdi5xg" path="res://resources/tweens/window_frame/window_frame_unfocus.tres" id="3_8chkt"]
+[ext_resource type="Script" uid="uid://k14me5tuweew" path="res://scripts/johann/ui/j_popup_element.gd" id="4_ilsa4"]
+[ext_resource type="Resource" uid="uid://cacw73ebafyx8" path="res://resources/tweens/center_fullscreen/center_fullscreen_open.tres" id="5_0x1ka"]
+[ext_resource type="Resource" uid="uid://bmkd44jnysda" path="res://resources/tweens/center_fullscreen/center_fullscreen_close.tres" id="6_2utn2"]
+[ext_resource type="Texture2D" uid="uid://c8c2rri8c26ku" path="res://images/ui/window/window_frame.png" id="7_3ptxh"]
+[ext_resource type="PackedScene" uid="uid://cnkysvjhscm" path="res://scenes/prefabs/johann/ui/generic/j_label_button.tscn" id="8_xf6no"]
+[ext_resource type="PackedScene" uid="uid://bqmmq0q8u4pk" path="res://scenes/prefabs/johann/ui/generic/j_texture_button.tscn" id="9_s8pic"]
+[ext_resource type="Script" uid="uid://d080t7vibd6ou" path="res://scripts/rishi/target_slot.gd" id="10_tpvat"]
+[ext_resource type="Texture2D" uid="uid://c7dtupre28qct" path="res://icon.svg" id="11_el5rp"]
+[ext_resource type="FontFile" uid="uid://d1t0i8dupfklb" path="res://resources/fonts/aseprite.otf" id="12_fram4"]
+[ext_resource type="Script" uid="uid://5rv5xgmafqy" path="res://scripts/rishi/typing_box.gd" id="13_qpjo4"]
+[ext_resource type="Texture2D" uid="uid://dkncexn3vhqbk" path="res://images/ui/jialing/CalmFace-Sheet.png" id="14_86gvw"]
+[ext_resource type="Texture2D" uid="uid://b2gykvmxddl87" path="res://images/ui/jialing/StressFace-Sheet.png" id="15_vpvod"]
+[ext_resource type="Texture2D" uid="uid://dl3xwad6o6x05" path="res://images/ui/jialing/TraumaFace-Sheet.png" id="16_m0xpq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j04sd"]
+atlas = ExtResource("14_86gvw")
+region = Rect2(0, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6blu"]
+atlas = ExtResource("14_86gvw")
+region = Rect2(46, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc0am"]
+atlas = ExtResource("14_86gvw")
+region = Rect2(92, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4y4tw"]
+atlas = ExtResource("14_86gvw")
+region = Rect2(138, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kf5yj"]
+atlas = ExtResource("15_vpvod")
+region = Rect2(0, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2b20e"]
+atlas = ExtResource("15_vpvod")
+region = Rect2(46, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71ou8"]
+atlas = ExtResource("15_vpvod")
+region = Rect2(92, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgqkq"]
+atlas = ExtResource("15_vpvod")
+region = Rect2(138, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovc1f"]
+atlas = ExtResource("16_m0xpq")
+region = Rect2(0, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0wkg"]
+atlas = ExtResource("16_m0xpq")
+region = Rect2(46, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mbh8"]
+atlas = ExtResource("16_m0xpq")
+region = Rect2(92, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41meu"]
+atlas = ExtResource("16_m0xpq")
+region = Rect2(138, 0, 46, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p52qu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j04sd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6blu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cc0am")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4y4tw")
+}],
+"loop": 1,
+"name": &"calm",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kf5yj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2b20e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71ou8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgqkq")
+}],
+"loop": 1,
+"name": &"stress",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovc1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0wkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mbh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41meu")
+}],
+"loop": 1,
+"name": &"trauma",
+"speed": 5.0
+}]
+
+[node name="PowerpointWindow" type="Control" unique_id=947669594]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_inov2")
+window_frame_focus = ExtResource("2_s5ndf")
+window_frame_unfocus = ExtResource("3_8chkt")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=915664027]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_ilsa4")
+open_tweens = ExtResource("5_0x1ka")
+close_tweens = ExtResource("6_2utn2")
+
+[node name="WindowBackground" type="ColorRect" parent="PanelContainer" unique_id=1232122458]
+layout_mode = 2
+color = Color(0.78039217, 0.8117647, 0.8666667, 1)
+
+[node name="WindowFrame" type="NinePatchRect" parent="PanelContainer" unique_id=290626031]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("7_3ptxh")
+region_rect = Rect2(0, 0, 126, 126)
+patch_margin_left = 4
+patch_margin_top = 20
+patch_margin_right = 67
+patch_margin_bottom = 4
+
+[node name="Margins" type="MarginContainer" parent="PanelContainer" unique_id=300706096]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Margins" unique_id=523995451]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Margins/HBoxContainer" unique_id=1192771245]
+layout_mode = 2
+alignment = 2
+
+[node name="OpenSelectTheCorrectImageWindowButton" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer" unique_id=596877703 instance=ExtResource("8_xf6no")]
+visible = false
+layout_mode = 2
+text = "Open Select The Image Window"
+
+[node name="NormalEndingButton" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer" unique_id=661877221 instance=ExtResource("8_xf6no")]
+visible = false
+layout_mode = 2
+text = "Normal Ending"
+
+[node name="Margins" type="MarginContainer" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer" unique_id=1185184921]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Scroll" type="ScrollContainer" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer/Margins" unique_id=111192847]
+custom_minimum_size = Vector2(185, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Margins" type="MarginContainer" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer/Margins/Scroll" unique_id=2133339943]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer/Margins/Scroll/Margins" unique_id=662492040]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SlideElement1" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer/Margins/Scroll/Margins/VBoxContainer" unique_id=1056967913 instance=ExtResource("9_s8pic")]
+custom_minimum_size = Vector2(150, 150)
+custom_maximum_size = Vector2(150, 150)
+layout_mode = 2
+
+[node name="SlideElement2" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer/Margins/Scroll/Margins/VBoxContainer" unique_id=606643699 instance=ExtResource("9_s8pic")]
+custom_minimum_size = Vector2(150, 150)
+custom_maximum_size = Vector2(150, 150)
+layout_mode = 2
+
+[node name="SlideElement3" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer/Margins/Scroll/Margins/VBoxContainer" unique_id=1514643722 instance=ExtResource("9_s8pic")]
+custom_minimum_size = Vector2(150, 150)
+custom_maximum_size = Vector2(150, 150)
+layout_mode = 2
+
+[node name="SlideElement4" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer/Margins/Scroll/Margins/VBoxContainer" unique_id=532169326 instance=ExtResource("9_s8pic")]
+custom_minimum_size = Vector2(150, 150)
+custom_maximum_size = Vector2(150, 150)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/Margins/HBoxContainer" unique_id=891327416]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SlideEditor" type="Control" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer2" unique_id=241975847]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Target" type="Control" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer2/SlideEditor" unique_id=743688536]
+layout_mode = 1
+anchor_left = 0.80300003
+anchor_top = 0.52400005
+anchor_right = 1.1370001
+anchor_bottom = 0.86200005
+offset_left = 70.244995
+offset_top = -130.00003
+offset_right = 75.11096
+offset_bottom = -133.8836
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.5235988
+script = ExtResource("10_tpvat")
+texture = ExtResource("11_el5rp")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer2/SlideEditor" unique_id=1444488688]
+layout_mode = 0
+offset_right = 579.0
+offset_bottom = 131.0
+theme_override_fonts/normal_font = ExtResource("12_fram4")
+theme_override_font_sizes/normal_font_size = 48
+text = "Where are the Slides Bro?"
+script = ExtResource("13_qpjo4")
+todo_color = Color(0.81960785, 0.6039216, 0, 1)
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer2/SlideEditor" unique_id=377950885]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 140.0
+offset_right = 446.0
+offset_bottom = 491.0
+theme_override_fonts/normal_font = ExtResource("12_fram4")
+theme_override_font_sizes/normal_font_size = 24
+text = "So once we realised, we were kinda fucked. So its a bright and lovely day. Beautiful sunshine coming through the windows. A head full of sleep and then you understand that your bro is kinda dumb.
+
+
+So what option do you have but to make a slideshow on slides."
+script = ExtResource("13_qpjo4")
+todo_color = Color(0.81960785, 0.6039216, 0, 1)
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/Margins/HBoxContainer" unique_id=2094463807]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer3" unique_id=1361814670]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer3/PanelContainer" unique_id=527822444]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer3/PanelContainer" unique_id=2017912977]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SubViewport" type="SubViewport" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer3/PanelContainer/SubViewportContainer" unique_id=457021034]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(128, 128)
+render_target_update_mode = 4
+
+[node name="JiaLing" type="AnimatedSprite2D" parent="PanelContainer/Margins/HBoxContainer/VBoxContainer3/PanelContainer/SubViewportContainer/SubViewport" unique_id=21652918]
+texture_filter = 1
+position = Vector2(64, 64)
+scale = Vector2(2.75, 2.75)
+sprite_frames = SubResource("SpriteFrames_p52qu")
+animation = &"calm"
+frame_progress = 0.25917357
+
+[connection signal="pressed" from="PanelContainer/Margins/HBoxContainer/VBoxContainer/OpenSelectTheCorrectImageWindowButton" to="." method="_on_open_select_the_correct_image_window_button_pressed"]
+[connection signal="pressed" from="PanelContainer/Margins/HBoxContainer/VBoxContainer/NormalEndingButton" to="." method="_on_normal_ending_button_pressed"]

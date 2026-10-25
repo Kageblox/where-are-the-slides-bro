@@ -9,6 +9,9 @@
 [ext_resource type="FontFile" uid="uid://d1t0i8dupfklb" path="res://resources/fonts/aseprite.otf" id="6_7qxxp"]
 [ext_resource type="Texture2D" uid="uid://c8c2rri8c26ku" path="res://images/ui/window/window_frame.png" id="7_3gvpn"]
 [ext_resource type="PackedScene" uid="uid://bqmmq0q8u4pk" path="res://scenes/prefabs/johann/ui/generic/j_texture_button.tscn" id="7_a0j7s"]
+[ext_resource type="Texture2D" uid="uid://dp74ddcf0hfxx" path="res://images/ActualSlide2.png" id="10_7qxxp"]
+[ext_resource type="Texture2D" uid="uid://cgeb7enr8ql28" path="res://images/ActualSlide.png" id="11_a0j7s"]
+[ext_resource type="Texture2D" uid="uid://dxxrcseq8ex76" path="res://images/Fish3.png" id="12_cnc84"]
 
 [node name="SelectTheCorrectImageWindow" type="Control" unique_id=947669594]
 layout_mode = 3
@@ -23,6 +26,15 @@ window_frame_focus = ExtResource("2_y8enc")
 window_frame_unfocus = ExtResource("3_lldfc")
 open_duration = 0.25
 close_duration = 0.25
+
+[node name="Background" type="ColorRect" parent="." unique_id=275110073]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.1254902)
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=915664027]
 self_modulate = Color(1, 1, 1, 0)
@@ -75,7 +87,7 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="PleaseSelectTheImageContaining" type="Label" parent="PanelContainer/Margins/VBoxContainer/Margins" unique_id=8352475]
+[node name="Captcha" type="Label" parent="PanelContainer/Margins/VBoxContainer/Margins" unique_id=8352475]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_7qxxp")
@@ -87,16 +99,22 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Option1" parent="PanelContainer/Margins/VBoxContainer/HBoxContainer" unique_id=596877703 instance=ExtResource("7_a0j7s")]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
+texture = ExtResource("10_7qxxp")
 
 [node name="Option2" parent="PanelContainer/Margins/VBoxContainer/HBoxContainer" unique_id=815481485 instance=ExtResource("7_a0j7s")]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
+texture = ExtResource("11_a0j7s")
 
 [node name="Option3" parent="PanelContainer/Margins/VBoxContainer/HBoxContainer" unique_id=1945972643 instance=ExtResource("7_a0j7s")]
+texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 3
+texture = ExtResource("12_cnc84")
 
 [connection signal="pressed" from="PanelContainer/Margins/VBoxContainer/HBoxContainer/Option1" to="." method="_on_option_1_pressed"]
 [connection signal="pressed" from="PanelContainer/Margins/VBoxContainer/HBoxContainer/Option2" to="." method="_on_option_2_pressed"]

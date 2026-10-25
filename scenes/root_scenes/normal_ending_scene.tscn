@@ -5,6 +5,16 @@
 [ext_resource type="PackedScene" uid="uid://bqmmq0q8u4pk" path="res://scenes/prefabs/johann/ui/generic/j_texture_button.tscn" id="2_8xug5"]
 [ext_resource type="Texture2D" uid="uid://dbki2kqe3wuai" path="res://images/ui/cutscene/wallpaper.JPG" id="2_wg0fc"]
 [ext_resource type="Texture2D" uid="uid://y0emwyti25m7" path="res://images/ui/cutscene/right.png" id="4_w0yg6"]
+[ext_resource type="Texture2D" uid="uid://cxmmgfbroupec" path="res://images/cutscenes/normal_ending/2.png" id="6_j2o7v"]
+[ext_resource type="Texture2D" uid="uid://cuofn0oetx4x" path="res://images/cutscenes/normal_ending/3.png" id="7_wu8y6"]
+[ext_resource type="Texture2D" uid="uid://b0523hseilkit" path="res://images/cutscenes/normal_ending/4.png" id="8_kf6fk"]
+[ext_resource type="Texture2D" uid="uid://c8ho5vff7dps6" path="res://images/cutscenes/normal_ending/5.png" id="9_8akw6"]
+[ext_resource type="Texture2D" uid="uid://wacftuplyshp" path="res://images/cutscenes/normal_ending/6.png" id="10_c84lr"]
+[ext_resource type="Texture2D" uid="uid://dxmp0042vyxf5" path="res://images/cutscenes/normal_ending/7.png" id="11_3nbdp"]
+[ext_resource type="Texture2D" uid="uid://uguhmi1pvm4h" path="res://images/cutscenes/normal_ending/8.png" id="12_53s2s"]
+[ext_resource type="Texture2D" uid="uid://dvai82wnwj2sk" path="res://images/cutscenes/normal_ending/9.png" id="13_6kmsk"]
+[ext_resource type="Texture2D" uid="uid://sflw5c7oi2sh" path="res://images/cutscenes/normal_ending/10.png" id="14_g0whg"]
+[ext_resource type="Texture2D" uid="uid://bmlfk62w4ceb2" path="res://images/cutscenes/normal_ending/NORMAL ENDING PICTURE WITH THE END.png" id="15_kf6fk"]
 
 [node name="NormalEndingScene" type="Node" unique_id=822257853]
 script = ExtResource("1_7ljwq")
@@ -18,7 +28,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_wg0fc")
 
-[node name="Slides" type="HBoxContainer" parent="Background" unique_id=2053574506]
+[node name="HBox" type="HBoxContainer" parent="Background" unique_id=2053574506]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,12 +37,12 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Previous_Control" type="Control" parent="Background/Slides" unique_id=63304109]
+[node name="Previous_Control" type="Control" parent="Background/HBox" unique_id=63304109]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="PreviousButton" parent="Background/Slides/Previous_Control" unique_id=596877703 instance=ExtResource("2_8xug5")]
+[node name="PreviousButton" parent="Background/HBox/Previous_Control" unique_id=596877703 instance=ExtResource("2_8xug5")]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -49,8 +59,9 @@ grow_vertical = 2
 texture = ExtResource("4_w0yg6")
 flip_h = true
 flip_v = true
+disabled = true
 
-[node name="Slides" type="MarginContainer" parent="Background/Slides" unique_id=293496964]
+[node name="Slides" type="MarginContainer" parent="Background/HBox" unique_id=293496964]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -59,18 +70,88 @@ theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 60
 theme_override_constants/margin_bottom = 60
 
-[node name="0" type="TextureRect" parent="Background/Slides/Slides" unique_id=1497859385]
+[node name="0" type="TextureRect" parent="Background/HBox/Slides" unique_id=1497859385]
 layout_mode = 2
 texture = ExtResource("2_7ljwq")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Next_Control" type="Control" parent="Background/Slides" unique_id=1678032067]
+[node name="1" type="TextureRect" parent="Background/HBox/Slides" unique_id=438406609]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_j2o7v")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="Background/HBox/Slides" unique_id=1868951947]
+visible = false
+layout_mode = 2
+texture = ExtResource("7_wu8y6")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="Background/HBox/Slides" unique_id=1890225750]
+visible = false
+layout_mode = 2
+texture = ExtResource("8_kf6fk")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="Background/HBox/Slides" unique_id=981162429]
+visible = false
+layout_mode = 2
+texture = ExtResource("9_8akw6")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="Background/HBox/Slides" unique_id=701177012]
+visible = false
+layout_mode = 2
+texture = ExtResource("10_c84lr")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="Background/HBox/Slides" unique_id=1301775227]
+visible = false
+layout_mode = 2
+texture = ExtResource("11_3nbdp")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="Background/HBox/Slides" unique_id=1420079434]
+visible = false
+layout_mode = 2
+texture = ExtResource("12_53s2s")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="Background/HBox/Slides" unique_id=1810733332]
+visible = false
+layout_mode = 2
+texture = ExtResource("13_6kmsk")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="9" type="TextureRect" parent="Background/HBox/Slides" unique_id=1949461133]
+visible = false
+layout_mode = 2
+texture = ExtResource("14_g0whg")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="10" type="TextureRect" parent="Background/HBox/Slides" unique_id=1066536756]
+visible = false
+layout_mode = 2
+texture = ExtResource("15_kf6fk")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Next_Control" type="Control" parent="Background/HBox" unique_id=1678032067]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="NextButton" parent="Background/Slides/Next_Control" unique_id=911783596 instance=ExtResource("2_8xug5")]
+[node name="NextButton" parent="Background/HBox/Next_Control" unique_id=911783596 instance=ExtResource("2_8xug5")]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -86,5 +167,5 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_w0yg6")
 
-[connection signal="pressed" from="Background/Slides/Previous_Control/PreviousButton" to="." method="_on_previous_button_pressed"]
-[connection signal="pressed" from="Background/Slides/Next_Control/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="Background/HBox/Previous_Control/PreviousButton" to="." method="_on_previous_button_pressed"]
+[connection signal="pressed" from="Background/HBox/Next_Control/NextButton" to="." method="_on_next_button_pressed"]

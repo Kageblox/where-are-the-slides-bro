@@ -2,6 +2,8 @@ extends Timer
 
 @export var default_time_left: float = 150.0
 
+
+
 var time_left_string: String:
 	get:
 		return get_time_left_string()
@@ -21,16 +23,24 @@ func get_time_left_string():
 		
 	return minutes_string + ":" + seconds_string
 
+func start_game():
+	start(default_time_left)
+	$MinigameTimer.start()
+	
+func end_game():
+	stop()
+	$MinigameTimer.stop()
+	SceneManager.goto_scene(SceneManager.normal_ending_scene_path)
+
 func reduce_time(value:float):
-	if time_left - value <= 0:
+	if time_left - value < 0:
 		stop()
-		SceneManager.goto_scene(SceneManager.normal_ending_scene_path)
+		$MinigameTimer.stop()
 	else:
 		start(time_left - value)
 
 func _on_timeout() -> void:
-	stop()
-	SceneManager.goto_scene(SceneManager.normal_ending_scene_path)
-
-func _process(delta: float) -> void:
-	print(time_left_string)
+	end_game()
+	
+func _on_minigame_timer_timeout() -> void:
+	PopupManager.open_popup(PopupManager.select_the_correct_image_window)

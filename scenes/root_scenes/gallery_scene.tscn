@@ -1,0 +1,179 @@
+[gd_scene format=3 uid="uid://b7y5avu22invq"]
+
+[ext_resource type="Script" uid="uid://cnlqxxardynp6" path="res://scripts/johann/root_scene/normal_ending_scene.gd" id="1_1e4c4"]
+[ext_resource type="Texture2D" uid="uid://dbki2kqe3wuai" path="res://images/ui/cutscene/wallpaper.JPG" id="2_x4vvh"]
+[ext_resource type="PackedScene" uid="uid://bqmmq0q8u4pk" path="res://scenes/prefabs/johann/ui/generic/j_texture_button.tscn" id="3_jebfq"]
+[ext_resource type="Texture2D" uid="uid://y0emwyti25m7" path="res://images/ui/cutscene/right.png" id="4_11860"]
+[ext_resource type="Texture2D" uid="uid://b0g387dn3qnnc" path="res://images/cutscenes/gallery/jialing concept.png" id="5_x4vvh"]
+[ext_resource type="Texture2D" uid="uid://ck2locaojwyah" path="res://images/cutscenes/gallery/jialing listening.png" id="6_jebfq"]
+[ext_resource type="Texture2D" uid="uid://cf6i36aifd8wr" path="res://images/cutscenes/gallery/jialing pixel art.png" id="7_11860"]
+[ext_resource type="Texture2D" uid="uid://cc1bnt6x6t4mr" path="res://images/cutscenes/gallery/joe concept.png" id="8_k48ix"]
+[ext_resource type="Texture2D" uid="uid://bh0dtg56hfb58" path="res://images/cutscenes/gallery/joe did the slides.png" id="9_jjrah"]
+[ext_resource type="Texture2D" uid="uid://cblayeasunjmy" path="res://images/cutscenes/gallery/joe flustered.png" id="10_70e0t"]
+[ext_resource type="Texture2D" uid="uid://clbih147t1nia" path="res://images/cutscenes/gallery/neutral.png" id="11_f2kxo"]
+[ext_resource type="Texture2D" uid="uid://cslo44ry38rap" path="res://images/cutscenes/gallery/normal ending_.png" id="12_6pk7m"]
+[ext_resource type="Texture2D" uid="uid://dqn7y4a7v10ib" path="res://images/cutscenes/gallery/rough character sheets.png" id="13_ca2wx"]
+[ext_resource type="Texture2D" uid="uid://b51cirvgvpqum" path="res://images/cutscenes/gallery/stressed.png" id="14_jau5a"]
+[ext_resource type="Texture2D" uid="uid://c5kcitrj3tc12" path="res://images/cutscenes/gallery/title picture.png" id="15_vnt12"]
+[ext_resource type="Texture2D" uid="uid://cyexafyshl8hi" path="res://images/cutscenes/gallery/unused i showspeed cooked face.png" id="16_dmq8w"]
+
+[node name="GalleryScene" type="Node" unique_id=822257853]
+script = ExtResource("1_1e4c4")
+
+[node name="Background" type="TextureRect" parent="." unique_id=461461344]
+self_modulate = Color(0.48178947, 0.48178947, 0.48178947, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_x4vvh")
+
+[node name="HBox" type="HBoxContainer" parent="Background" unique_id=2053574506]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Previous_Control" type="Control" parent="Background/HBox" unique_id=63304109]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PreviousButton" parent="Background/HBox/Previous_Control" unique_id=596877703 instance=ExtResource("3_jebfq")]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_11860")
+flip_h = true
+flip_v = true
+disabled = true
+
+[node name="Slides" type="MarginContainer" parent="Background/HBox" unique_id=293496964]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="0" type="TextureRect" parent="Background/HBox/Slides" unique_id=1497859385]
+layout_mode = 2
+texture = ExtResource("5_x4vvh")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="Background/HBox/Slides" unique_id=438406609]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_jebfq")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="Background/HBox/Slides" unique_id=1868951947]
+visible = false
+layout_mode = 2
+texture = ExtResource("7_11860")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="Background/HBox/Slides" unique_id=1890225750]
+visible = false
+layout_mode = 2
+texture = ExtResource("8_k48ix")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="Background/HBox/Slides" unique_id=981162429]
+visible = false
+layout_mode = 2
+texture = ExtResource("9_jjrah")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="5" type="TextureRect" parent="Background/HBox/Slides" unique_id=701177012]
+visible = false
+layout_mode = 2
+texture = ExtResource("10_70e0t")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="6" type="TextureRect" parent="Background/HBox/Slides" unique_id=1301775227]
+visible = false
+layout_mode = 2
+texture = ExtResource("11_f2kxo")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="7" type="TextureRect" parent="Background/HBox/Slides" unique_id=1420079434]
+visible = false
+layout_mode = 2
+texture = ExtResource("12_6pk7m")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="8" type="TextureRect" parent="Background/HBox/Slides" unique_id=1810733332]
+visible = false
+layout_mode = 2
+texture = ExtResource("13_ca2wx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="9" type="TextureRect" parent="Background/HBox/Slides" unique_id=1949461133]
+visible = false
+layout_mode = 2
+texture = ExtResource("14_jau5a")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="10" type="TextureRect" parent="Background/HBox/Slides" unique_id=1066536756]
+visible = false
+layout_mode = 2
+texture = ExtResource("15_vnt12")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="11" type="TextureRect" parent="Background/HBox/Slides" unique_id=488657853]
+visible = false
+layout_mode = 2
+texture = ExtResource("16_dmq8w")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Next_Control" type="Control" parent="Background/HBox" unique_id=1678032067]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NextButton" parent="Background/HBox/Next_Control" unique_id=911783596 instance=ExtResource("3_jebfq")]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_11860")
+
+[connection signal="pressed" from="Background/HBox/Previous_Control/PreviousButton" to="." method="_on_previous_button_pressed"]
+[connection signal="pressed" from="Background/HBox/Next_Control/NextButton" to="." method="_on_next_button_pressed"]

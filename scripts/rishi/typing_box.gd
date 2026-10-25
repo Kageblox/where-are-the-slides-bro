@@ -84,8 +84,8 @@ func show_text() -> void:
 
 func accuracy() -> float:
 	if keys_pressed == 0:
-		return 100.0
-	return 100.0 * keys_right / keys_pressed
+		return 0.0
+	return (100.0 * keys_right / keys_pressed)* typed.length()/target_text.length()
 
 
 func wpm() -> float:
@@ -99,3 +99,10 @@ func wpm() -> float:
 		if typed[i] == target_text[i]:
 			right_letters += 1
 	return (right_letters / 5.0) / minutes
+	
+
+func score() -> float:
+	var best = 0.0
+	var accuracy = clampf(accuracy()/100,0.0,1.0)
+	best = maxf(best, accuracy)
+	return best

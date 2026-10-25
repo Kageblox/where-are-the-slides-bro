@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ba7g7sqp5rliy"]
+
+[ext_resource type="Script" uid="uid://dnxvqrco4a7g6" path="res://scripts/johann/global/audio_manager.gd" id="1_kic43"]
+[ext_resource type="AudioStream" uid="uid://bmk4f5p10ptpy" path="res://audio/BryanFinalChance150bpm.wav" id="2_62o7w"]
+[ext_resource type="AudioStream" uid="uid://cm6bqpwthdq0s" path="res://audio/BryansTitleSong108bpm.wav" id="2_djfrx"]
+[ext_resource type="AudioStream" uid="uid://drtrqwxos1h04" path="res://audio/BryanRandom140bpm.wav" id="3_7fw7b"]
+[ext_resource type="AudioStream" uid="uid://cm5fbnmbjkmxo" path="res://audio/BryanRandomSong120bpm.wav" id="4_o8ntj"]
+
+[node name="AudioManager" type="Node" unique_id=1919018372]
+script = ExtResource("1_kic43")
+
+[node name="0" type="AudioStreamPlayer" parent="." unique_id=465704976]
+stream = ExtResource("2_62o7w")
+
+[node name="1" type="AudioStreamPlayer" parent="." unique_id=1033884344]
+stream = ExtResource("3_7fw7b")
+
+[node name="2" type="AudioStreamPlayer" parent="." unique_id=1708215950]
+stream = ExtResource("4_o8ntj")
+
+[node name="3" type="AudioStreamPlayer" parent="." unique_id=875499321]
+stream = ExtResource("2_djfrx")

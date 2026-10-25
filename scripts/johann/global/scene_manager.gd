@@ -4,6 +4,8 @@ extends Node
 var main_menu_scene_path = "res://scenes/root_scenes/main_menu_scene.tscn"
 var gameplay_scene_path = "res://scenes/root_scenes/gameplay_scene.tscn"
 var normal_ending_scene_path = "res://scenes/root_scenes/normal_ending_scene.tscn" 
+var gallery_scene_path = "res://scenes/root_scenes/gallery_scene.tscn" 
+var introduction_scene_path = "res://scenes/root_scenes/introduction_scene.tscn" 
 
 
 var old_scene: RootScene = null

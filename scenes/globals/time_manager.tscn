@@ -6,4 +6,8 @@
 wait_time = 150.0
 script = ExtResource("1_amlyu")
 
+[node name="MinigameTimer" type="Timer" parent="." unique_id=764506015]
+wait_time = 7.0
+
 [connection signal="timeout" from="." to="." method="_on_timeout"]
+[connection signal="timeout" from="MinigameTimer" to="." method="_on_minigame_timer_timeout"]

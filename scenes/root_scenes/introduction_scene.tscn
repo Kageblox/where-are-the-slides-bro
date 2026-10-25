@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://bk0gwlybsgpqv"]
+
+[ext_resource type="Script" uid="uid://btqcq4udkigje" path="res://scripts/johann/root_scene/introduction_scene.gd" id="1_n8h4u"]
+[ext_resource type="Texture2D" uid="uid://dbki2kqe3wuai" path="res://images/ui/cutscene/wallpaper.JPG" id="2_m8xea"]
+[ext_resource type="PackedScene" uid="uid://bqmmq0q8u4pk" path="res://scenes/prefabs/johann/ui/generic/j_texture_button.tscn" id="3_sgq6q"]
+[ext_resource type="Texture2D" uid="uid://y0emwyti25m7" path="res://images/ui/cutscene/right.png" id="4_gc0wm"]
+[ext_resource type="Texture2D" uid="uid://bh3nvs2n11jh0" path="res://images/cutscenes/introduction/1 PLACEHOLDER.png" id="5_1uhd0"]
+[ext_resource type="Texture2D" uid="uid://cnajiswujelea" path="res://images/cutscenes/introduction/2 PLACEHOLDER.png" id="6_co1kj"]
+[ext_resource type="Texture2D" uid="uid://c5sgyrhsflstc" path="res://images/cutscenes/introduction/3 PLACEHOLDER.png" id="7_xphge"]
+[ext_resource type="Texture2D" uid="uid://ccb1bq0j3syqg" path="res://images/cutscenes/introduction/4 PLACEHOLDER.png" id="8_1ewvc"]
+[ext_resource type="Texture2D" uid="uid://ce525nrhu6nk" path="res://images/cutscenes/introduction/5 PLACEHOLDER.png" id="9_57b7y"]
+[ext_resource type="PackedScene" uid="uid://cnkysvjhscm" path="res://scenes/prefabs/johann/ui/generic/j_label_button.tscn" id="10_kiiu3"]
+
+[node name="IntroductionScene" type="Node" unique_id=822257853]
+script = ExtResource("1_n8h4u")
+
+[node name="Background" type="TextureRect" parent="." unique_id=461461344]
+self_modulate = Color(0.48178947, 0.48178947, 0.48178947, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_m8xea")
+
+[node name="HBox" type="HBoxContainer" parent="Background" unique_id=2053574506]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Previous_Control" type="Control" parent="Background/HBox" unique_id=63304109]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PreviousButton" parent="Background/HBox/Previous_Control" unique_id=596877703 instance=ExtResource("3_sgq6q")]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_gc0wm")
+flip_h = true
+flip_v = true
+disabled = true
+
+[node name="Slides" type="MarginContainer" parent="Background/HBox" unique_id=293496964]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="0" type="TextureRect" parent="Background/HBox/Slides" unique_id=1497859385]
+layout_mode = 2
+texture = ExtResource("5_1uhd0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="1" type="TextureRect" parent="Background/HBox/Slides" unique_id=438406609]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_co1kj")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="2" type="TextureRect" parent="Background/HBox/Slides" unique_id=1868951947]
+visible = false
+layout_mode = 2
+texture = ExtResource("7_xphge")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="3" type="TextureRect" parent="Background/HBox/Slides" unique_id=1890225750]
+visible = false
+layout_mode = 2
+texture = ExtResource("8_1ewvc")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="4" type="TextureRect" parent="Background/HBox/Slides" unique_id=981162429]
+visible = false
+layout_mode = 2
+texture = ExtResource("9_57b7y")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Next_Control" type="Control" parent="Background/HBox" unique_id=1678032067]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NextButton" parent="Background/HBox/Next_Control" unique_id=911783596 instance=ExtResource("3_sgq6q")]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_gc0wm")
+
+[node name="StartGameButton" parent="Background/HBox/Next_Control" unique_id=1144878443 instance=ExtResource("10_kiiu3")]
+layout_mode = 0
+offset_left = -33.0
+offset_top = 435.0
+offset_right = 184.0
+offset_bottom = 479.0
+text = "Start Game"
+font_size = 32
+
+[connection signal="pressed" from="Background/HBox/Previous_Control/PreviousButton" to="." method="_on_previous_button_pressed"]
+[connection signal="pressed" from="Background/HBox/Next_Control/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="Background/HBox/Next_Control/StartGameButton" to="." method="_on_start_game_button_pressed"]

@@ -13,8 +13,15 @@
 [ext_resource type="Texture2D" uid="uid://b2gykvmxddl87" path="res://images/ui/jialing/StressFace-Sheet.png" id="10_1iqt4"]
 [ext_resource type="Script" uid="uid://csu5yj43mij4v" path="res://scripts/rishi/slide_area.gd" id="10_h3wdy"]
 [ext_resource type="Texture2D" uid="uid://xblgi23gpvex" path="res://images/ui/powerpoint/Trashbin.png" id="10_j04sd"]
+[ext_resource type="Texture2D" uid="uid://deonc3fic377y" path="res://images/powerpoint_elements/Pop up png 6.png" id="11_71ou8"]
 [ext_resource type="Texture2D" uid="uid://dl3xwad6o6x05" path="res://images/ui/jialing/TraumaFace-Sheet.png" id="11_h3wdy"]
+[ext_resource type="Texture2D" uid="uid://b3ismvc1fgdf8" path="res://images/powerpoint_elements/Pop up png 3.png" id="11_i0wkg"]
+[ext_resource type="Script" uid="uid://b5mdxu1ce1ros" path="res://scripts/rishi/target_slot.gd" id="12_4y4tw"]
+[ext_resource type="Texture2D" uid="uid://xs7laiyjcslh" path="res://images/powerpoint_elements/Pop up png 7.png" id="12_pgqkq"]
+[ext_resource type="Texture2D" uid="uid://bqo2u8rtnj003" path="res://images/powerpoint_elements/Volume.png" id="14_8mbh8"]
+[ext_resource type="Texture2D" uid="uid://dee0oieuhslfe" path="res://images/powerpoint_elements/Window home.png" id="15_41meu"]
 [ext_resource type="FontFile" uid="uid://d1t0i8dupfklb" path="res://resources/fonts/aseprite.otf" id="15_h6blu"]
+[ext_resource type="Script" uid="uid://5rv5xgmafqy" path="res://scripts/rishi/typing_box.gd" id="15_kf5yj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j04sd"]
 atlas = ExtResource("9_3ufu7")
@@ -242,25 +249,36 @@ size_flags_vertical = 3
 custom_minimum_size = Vector2(150, 150)
 custom_maximum_size = Vector2(150, 150)
 layout_mode = 2
+texture = ExtResource("11_i0wkg")
 pressed_args = 0
 
 [node name="SlideElement1" parent="PanelContainer/Margins/HBox/VBox/VBox/Scroll/Margins/VBoxContainer" unique_id=606643699 instance=ExtResource("9_1iqt4")]
 custom_minimum_size = Vector2(150, 150)
 custom_maximum_size = Vector2(150, 150)
 layout_mode = 2
+texture = ExtResource("11_71ou8")
 pressed_args = 1
 
 [node name="SlideElement2" parent="PanelContainer/Margins/HBox/VBox/VBox/Scroll/Margins/VBoxContainer" unique_id=1514643722 instance=ExtResource("9_1iqt4")]
 custom_minimum_size = Vector2(150, 150)
 custom_maximum_size = Vector2(150, 150)
 layout_mode = 2
+texture = ExtResource("12_pgqkq")
 pressed_args = 2
 
 [node name="SlideElement3" parent="PanelContainer/Margins/HBox/VBox/VBox/Scroll/Margins/VBoxContainer" unique_id=532169326 instance=ExtResource("9_1iqt4")]
 custom_minimum_size = Vector2(150, 150)
 custom_maximum_size = Vector2(150, 150)
 layout_mode = 2
+texture = ExtResource("14_8mbh8")
 pressed_args = 3
+
+[node name="SlideElement4" parent="PanelContainer/Margins/HBox/VBox/VBox/Scroll/Margins/VBoxContainer" unique_id=464261754 instance=ExtResource("9_1iqt4")]
+custom_minimum_size = Vector2(150, 150)
+custom_maximum_size = Vector2(150, 150)
+layout_mode = 2
+texture = ExtResource("15_41meu")
+pressed_args = 4
 
 [node name="Margins" type="MarginContainer" parent="PanelContainer/Margins/HBox" unique_id=1222147535]
 layout_mode = 2
@@ -276,7 +294,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("10_h3wdy")
 
-[node name="ColorRect" type="ColorRect" parent="PanelContainer/Margins/HBox/Margins/SlideArea" unique_id=896478009]
+[node name="SlideBackground" type="ColorRect" parent="PanelContainer/Margins/HBox/Margins/SlideArea" unique_id=896478009]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -284,6 +302,231 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="Slide0" type="Control" parent="PanelContainer/Margins/HBox/Margins/SlideArea" unique_id=23665906]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Target" type="Control" parent="PanelContainer/Margins/HBox/Margins/SlideArea/Slide0" unique_id=2139918376]
+texture_filter = 1
+layout_mode = 1
+anchor_left = 0.80300003
+anchor_top = 0.52400005
+anchor_right = 1.1370001
+anchor_bottom = 0.86200005
+offset_left = -85.81506
+offset_top = -105.00003
+offset_right = -119.88513
+offset_bottom = -106.00003
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.5235988
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+script = ExtResource("12_4y4tw")
+texture = ExtResource("11_i0wkg")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/Margins/HBox/Margins/SlideArea/Slide0" unique_id=1249671551]
+layout_mode = 0
+offset_right = 579.0
+offset_bottom = 131.0
+theme_override_fonts/normal_font = ExtResource("15_h6blu")
+theme_override_font_sizes/normal_font_size = 48
+text = "Where are the Slides Bro?"
+script = ExtResource("15_kf5yj")
+target_text = "Where are the Slides Bro?"
+todo_color = Color(0.81960785, 0.6039216, 0, 1)
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/Margins/HBox/Margins/SlideArea/Slide0" unique_id=204424303]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 140.0
+offset_right = 446.0
+offset_bottom = 491.0
+theme_override_fonts/normal_font = ExtResource("15_h6blu")
+theme_override_font_sizes/normal_font_size = 24
+text = "So once we realised, we were kinda fucked. So its a bright and lovely day. Beautiful sunshine coming through the windows. A head full of sleep and then you understand that your bro is kinda dumb.
+
+
+So what option do you have but to make a slideshow on slides."
+script = ExtResource("15_kf5yj")
+target_text = "So once we realised, we were kinda fucked. So its a bright and lovely day. Beautiful sunshine coming through the windows. A head full of sleep and then you understand that your bro is kinda dumb."
+todo_color = Color(0.81960785, 0.6039216, 0, 1)
+
+[node name="Slide1" type="Control" parent="PanelContainer/Margins/HBox/Margins/SlideArea" unique_id=962759974]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Target" type="Control" parent="PanelContainer/Margins/HBox/Margins/SlideArea/Slide1" unique_id=1855427657]
+texture_filter = 1
+layout_mode = 1
+anchor_left = 0.80300003
+anchor_top = 0.52400005
+anchor_right = 1.1370001
+anchor_bottom = 0.86200005
+offset_left = -39.815033
+offset_top = 60.99997
+offset_right = -73.88507
+offset_bottom = 59.99997
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.5235988
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+script = ExtResource("12_4y4tw")
+texture = ExtResource("11_71ou8")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="PanelContainer/Margins/HBox/Margins/SlideArea/Slide1" unique_id=1707208387]
+layout_mode = 0
+offset_right = 579.0
+offset_bottom = 131.0
+theme_override_fonts/normal_font = ExtResource("15_h6blu")
+theme_override_font_sizes/normal_font_size = 48
+text = "So we now know thier location"
+script = ExtResource("15_kf5yj")
+target_text = "So we now know thier location"
+todo_color = Color(0.81960785, 0.6039216, 0, 1)
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="PanelContainer/Margins/HBox/Margins/SlideArea/Slide1" unique_id=2049439785]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 140.0
+offset_right = 446.0
+offset_bottom = 491.0
+theme_override_fonts/normal_font = ExtResource("15_h6blu")
+theme_override_font_sizes/normal_font_size = 24
+text = "So after a lot of Investigation it turns out the slides were in our mind. They were nothing but a piece of delusion in our minds.
+
+Our existential crisis made us imagine hypothetical scenarios where our supposed hardworking, deterministic selves had the time of the day and the night and the day to make these amazing slides. 
+
+We now realise we are DUMB."
+script = ExtResource("15_kf5yj")
+target_text = "So after a lot of Investigation it turns out the slides were in our mind. They were nothing but a piece of delusion in our minds.Our existential crisis made us imagine hypothetical scenarios where our supposed hardworking, deterministic selves had the time of the day and the night and the day to make these amazing slides. We now realise we are DUMB."
+todo_color = Color(0.81960785, 0.6039216, 0, 1)
+
+[node name="Slide2" type="Control" parent="PanelContainer/Margins/HBox/Margins/SlideArea" unique_id=1744734096]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Target" type="Control" parent="PanelContainer/Margins/HBox/Margins/SlideArea/Slide2" unique_id=800242447]
+texture_filter = 1
+layout_mode = 1
+anchor_left = 0.80300003
+anchor_top = 0.52400005
+anchor_right = 1.1370001
+anchor_bottom = 0.86200005
+offset_left = -173.81506
+offset_top = 68.99997
+offset_right = -207.88513
+offset_bottom = 67.99997
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.5235988
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+script = ExtResource("12_4y4tw")
+texture = ExtResource("12_pgqkq")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/Margins/HBox/Margins/SlideArea/Slide2" unique_id=1918942513]
+layout_mode = 0
+offset_right = 579.0
+offset_bottom = 131.0
+theme_override_fonts/normal_font = ExtResource("15_h6blu")
+theme_override_font_sizes/normal_font_size = 48
+text = "What can we do now?"
+script = ExtResource("15_kf5yj")
+target_text = "What can we do now?"
+todo_color = Color(0.81960785, 0.6039216, 0, 1)
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/Margins/HBox/Margins/SlideArea/Slide2" unique_id=2070674582]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 117.0
+offset_right = 575.0
+offset_bottom = 314.0
+theme_override_fonts/normal_font = ExtResource("15_h6blu")
+theme_override_font_sizes/normal_font_size = 24
+text = "We do what we always do Damage Control. HEHEHE
+So as the word suggests damage control referes to using highly shitty pop-up induced technological hardware to cook some shit up. SO where we stand before you begging for some mercy upon our poor souls and let us live in peace
+"
+script = ExtResource("15_kf5yj")
+target_text = "We do what we always do Damage Control. HEHEHESo as the word suggests damage control referes to using highly shitty pop-up induced technological hardware to cook some shit up. SO where we stand before you begging for some mercy upon our poor souls and let us live in peace"
+todo_color = Color(0.81960785, 0.6039216, 0, 1)
+
+[node name="Slide3" type="Control" parent="PanelContainer/Margins/HBox/Margins/SlideArea" unique_id=1696086745]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Target" type="Control" parent="PanelContainer/Margins/HBox/Margins/SlideArea/Slide3" unique_id=1336115217]
+texture_filter = 1
+layout_mode = 1
+anchor_left = 0.80300003
+anchor_top = 0.52400005
+anchor_right = 1.1370001
+anchor_bottom = 0.86200005
+offset_left = -51.815063
+offset_top = 20.99997
+offset_right = -85.88513
+offset_bottom = 19.99997
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.5235988
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+script = ExtResource("12_4y4tw")
+texture = ExtResource("14_8mbh8")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/Margins/HBox/Margins/SlideArea/Slide3" unique_id=998213103]
+layout_mode = 0
+offset_right = 579.0
+offset_bottom = 131.0
+theme_override_fonts/normal_font = ExtResource("15_h6blu")
+theme_override_font_sizes/normal_font_size = 48
+text = "FUN FACTSSS
+YAYYYY!!!"
+script = ExtResource("15_kf5yj")
+target_text = "FUN FACTSSSYAYYYY!!!"
+todo_color = Color(0.81960785, 0.6039216, 0, 1)
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/Margins/HBox/Margins/SlideArea/Slide3" unique_id=1244322745]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 140.0
+offset_right = 446.0
+offset_bottom = 491.0
+theme_override_fonts/normal_font = ExtResource("15_h6blu")
+theme_override_font_sizes/normal_font_size = 24
+text = "Did you know? Joe Annoi has flirted with a boy.
+
+Did you know? The width of Australia is bigger than the width of the moon.
+
+Did you know?That sometimes all we need is the chicken to cross the road and knock on our house to realise."
+script = ExtResource("15_kf5yj")
+target_text = "Did you know? Joe Annoi has flirted with a boy.Did you know? The width of Australia is bigger than the width of the moon.Did you know?That sometimes all we need is the chicken to cross the road and knock on our house to realise."
+todo_color = Color(0.81960785, 0.6039216, 0, 1)
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/Margins/HBox" unique_id=2094463807]
 layout_mode = 2
@@ -354,5 +597,7 @@ text = "Submit Slide"
 [connection signal="pressed" from="PanelContainer/Margins/HBox/VBox/VBox/Scroll/Margins/VBoxContainer/SlideElement1" to="." method="_on_slide_element_pressed"]
 [connection signal="pressed" from="PanelContainer/Margins/HBox/VBox/VBox/Scroll/Margins/VBoxContainer/SlideElement2" to="." method="_on_slide_element_pressed"]
 [connection signal="pressed" from="PanelContainer/Margins/HBox/VBox/VBox/Scroll/Margins/VBoxContainer/SlideElement3" to="." method="_on_slide_element_pressed"]
+[connection signal="pressed" from="PanelContainer/Margins/HBox/VBox/VBox/Scroll/Margins/VBoxContainer/SlideElement4" to="." method="_on_slide_element_pressed"]
 [connection signal="gui_input" from="PanelContainer/Margins/HBox/Margins/SlideArea" to="PanelContainer/Margins/HBox/Margins/SlideArea" method="_on_gui_input"]
 [connection signal="pressed" from="PanelContainer/Margins/HBox/VBoxContainer3/ReduceTimeButton" to="." method="_on_reduce_time_button_pressed"]
+[connection signal="pressed" from="PanelContainer/Margins/HBox/VBoxContainer3/SubmitSlideButton" to="." method="_on_submit_slide_button_pressed"]

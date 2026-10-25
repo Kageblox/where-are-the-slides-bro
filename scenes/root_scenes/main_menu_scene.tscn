@@ -62,11 +62,12 @@ text = "Settings"
 font_size = 36
 margins = 16
 
-[node name="CreditsButton" parent="Background/HBoxContainer/VBoxContainer" unique_id=18135434 instance=ExtResource("1_oet81")]
+[node name="GalleryButton" parent="Background/HBoxContainer/VBoxContainer" unique_id=18135434 instance=ExtResource("1_oet81")]
 layout_mode = 2
-text = "Credits"
+text = "Gallery"
 font_size = 36
 margins = 16
 
 [connection signal="pressed" from="Background/HBoxContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="Background/HBoxContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Background/HBoxContainer/VBoxContainer/GalleryButton" to="." method="_on_gallery_button_pressed"]
